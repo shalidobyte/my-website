@@ -3,40 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ShuleShift - Transfer to a Better School, Easily</title>
+<title>ShuleShift - All 47 Counties Kenya</title>
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50">
-<nav class="bg-white shadow-sm sticky top-0">
-<div class="max-w-7xl mx-auto px-4 py-3 flex justify-between">
-<div class="font-extrabold text-2xl text-green-800">🎓 ShuleShift</div>
-<a href="https://wa.me/254700000000" class="bg-green-700 text-white px-5 py-2 rounded-lg font-bold text-sm">WhatsApp Us</a>
-</div>
+<nav class="bg-white shadow p-4 flex justify-between items-center">
+<div class="font-extrabold text-xl text-green-800">🎓 ShuleShift</div>
+<div class="text-xs bg-green-100 text-green-800 px-3 py-1 rounded-full font-bold">🇰🇪 47 COUNTIES</div>
+<a href="https://wa.me/254183179040" class="bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-bold">0183179040</a>
 </nav>
-<section class="max-w-7xl mx-auto px-4 py-16 bg-white grid md:grid-cols-2 gap-8 items-center">
-<div>
-<div class="bg-green-50 border inline-block px-3 py-1 rounded text-xs font-bold text-green-800 mb-4">🇰🇪 Made for Kenyan Students</div>
-<h1 class="text-4xl md:text-5xl font-extrabold">Transfer to a Better School, <span class="text-green-700">Easily</span></h1>
-<p class="mt-4 text-gray-600 text-lg">ShuleShift helps Kenyan students find and transfer to their ideal primary and secondary schools.</p>
-<div class="mt-6 flex gap-3"><a href="#search" class="bg-green-700 text-white px-6 py-3 rounded-lg font-bold">Search Schools 🔍</a></div>
+
+<div class="max-w-6xl mx-auto p-4">
+<div class="bg-white rounded-2xl p-6 md:p-10 text-center mt-4 shadow">
+<h1 class="text-3xl md:text-5xl font-extrabold leading-tight">Transfer to a Better School, <span class="text-green-700">Anywhere in Kenya</span></h1>
+<p class="mt-4 text-gray-600">Search any of 47 counties - Nairobi to Turkana, Mombasa to Busia</p>
+<input id="countySearch" onkeyup="searchCounty()" placeholder="🔍 Search County e.g. Kiambu, Nairobi, Kisumu..." class="mt-6 w-full border-2 border-green-200 p-4 rounded-xl">
 </div>
-<div class="bg-gray-100 rounded-2xl h-80 flex items-center justify-center text-6xl">👩‍🎓</div>
-</section>
-<section class="py-14 bg-gray-100">
-<div class="max-w-7xl mx-auto px-4">
-<h2 class="text-3xl font-bold text-center">Everything You Need for a Smooth Transfer</h2>
-<div class="mt-10 grid md:grid-cols-4 gap-6">
-<div class="bg-white p-6 rounded-xl text-center shadow-sm"><div class="text-4xl mb-3">🔍</div><b>Search schools with vacancies</b><p class="text-sm text-gray-600 mt-2">Find spaces near you, updated daily.</p></div>
-<div class="bg-white p-6 rounded-xl text-center shadow-sm"><div class="text-4xl mb-3">📋</div><b>Easy transfer application</b><p class="text-sm text-gray-600 mt-2">Submit transfers online in minutes.</p></div>
-<div class="bg-white p-6 rounded-xl text-center shadow-sm"><div class="text-4xl mb-3">📄</div><b>Document assistance</b><p class="text-sm text-gray-600 mt-2">We help prepare required documents.</p></div>
-<div class="bg-white p-6 rounded-xl text-center shadow-sm"><div class="text-4xl mb-3">📍</div><b>Track transfer status</b><p class="text-sm text-gray-600 mt-2">Monitor your application in real-time.</p></div>
+
+<div id="counties" class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
+<div class="bg-white border p-3 rounded-xl"><b>1. Mombasa</b><br><a href="https://wa.me/254183179040?text=School%20in%20Mombasa" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>2. Kwale</b><br><a href="https://wa.me/254183179040?text=School%20in%20Kwale" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>3. Kilifi</b><br><a href="https://wa.me/254183179040?text=School%20in%20Kilifi" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>4. Tana River</b><br><a href="https://wa.me/254183179040?text=School%20in%20Tana%20River" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>5. Lamu</b><br><a href="https://wa.me/254183179040?text=School%20in%20Lamu" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>6. Taita Taveta</b><br><a href="https://wa.me/254183179040?text=School%20in%20Taita%20Taveta" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>7. Garissa</b><br><a href="https://wa.me/254183179040?text=School%20in%20Garissa" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>8. Wajir</b><br><a href="https://wa.me/254183179040?text=School%20in%20Wajir" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>9. Mandera</b><br><a href="https://wa.me/254183179040?text=School%20in%20Mandera" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>10. Marsabit</b><br><a href="https://wa.me/254183179040?text=School%20in%20Marsabit" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>11. Isiolo</b><br><a href="https://wa.me/254183179040?text=School%20in%20Isiolo" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>12. Meru</b><br><a href="https://wa.me/254183179040?text=School%20in%20Meru" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>13. Tharaka Nithi</b><br><a href="https://wa.me/254183179040?text=School%20in%20Tharaka" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>14. Embu</b><br><a href="https://wa.me/254183179040?text=School%20in%20Embu" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>15. Kitui</b><br><a href="https://wa.me/254183179040?text=School%20in%20Kitui" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>16. Machakos</b><br><a href="https://wa.me/254183179040?text=School%20in%20Machakos" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>17. Makueni</b><br><a href="https://wa.me/254183179040?text=School%20in%20Makueni" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>18. Nyandarua</b><br><a href="https://wa.me/254183179040?text=School%20in%20Nyandarua" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>19. Nyeri</b><br><a href="https://wa.me/254183179040?text=School%20in%20Nyeri" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>20. Kirinyaga</b><br><a href="https://wa.me/254183179040?text=School%20in%20Kirinyaga" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>21. Murang'a</b><br><a href="https://wa.me/254183179040?text=School%20in%20Muranga" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>22. Kiambu</b><br><a href="https://wa.me/254183179040?text=School%20in%20Kiambu" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>23. Turkana</b><br><a href="https://wa.me/254183179040?text=School%20in%20Turkana" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>24. West Pokot</b><br><a href="https://wa.me/254183179040?text=School%20in%20West%20Pokot" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>25. Samburu</b><br><a href="https://wa.me/254183179040?text=School%20in%20Samburu" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>26. Trans Nzoia</b><br><a href="https://wa.me/254183179040?text=School%20in%20Trans%20Nzoia" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>27. Uasin Gishu</b><br><a href="https://wa.me/254183179040?text=School%20in%20Uasin%20Gishu" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>28. Elgeyo Marakwet</b><br><a href="https://wa.me/254183179040?text=School%20in%20Elgeyo" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>29. Nandi</b><br><a href="https://wa.me/254183179040?text=School%20in%20Nandi" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>30. Baringo</b><br><a href="https://wa.me/254183179040?text=School%20in%20Baringo" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>31. Laikipia</b><br><a href="https://wa.me/254183179040?text=School%20in%20Laikipia" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>32. Nakuru</b><br><a href="https://wa.me/254183179040?text=School%20in%20Nakuru" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>33. Narok</b><br><a href="https://wa.me/254183179040?text=School%20in%20Narok" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>34. Kajiado</b><br><a href="https://wa.me/254183179040?text=School%20in%20Kajiado" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>35. Kericho</b><br><a href="https://wa.me/254183179040?text=School%20in%20Kericho" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>36. Bomet</b><br><a href="https://wa.me/254183179040?text=School%20in%20Bomet" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>37. Kakamega</b><br><a href="https://wa.me/254183179040?text=School%20in%20Kakamega" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>38. Vihiga</b><br><a href="https://wa.me/254183179040?text=School%20in%20Vihiga" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>39. Bungoma</b><br><a href="https://wa.me/254183179040?text=School%20in%20Bungoma" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>40. Busia</b><br><a href="https://wa.me/254183179040?text=School%20in%20Busia" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>41. Siaya</b><br><a href="https://wa.me/254183179040?text=School%20in%20Siaya" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>42. Kisumu</b><br><a href="https://wa.me/254183179040?text=School%20in%20Kisumu" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>43. Homa Bay</b><br><a href="https://wa.me/254183179040?text=School%20in%20Homa%20Bay" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>44. Migori</b><br><a href="https://wa.me/254183179040?text=School%20in%20Migori" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>45. Kisii</b><br><a href="https://wa.me/254183179040?text=School%20in%20Kisii" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl"><b>46. Nyamira</b><br><a href="https://wa.me/254183179040?text=School%20in%20Nyamira" class="text-green-700 text-xs font-bold">Check →</a></div>
+<div class="bg-white border p-3 rounded-xl bg-green-700 text-white"><b>47. Nairobi</b><br><a href="https://wa.me/254183179040?text=School%20in%20Nairobi" class="text-white text-xs font-bold">Check →</a></div>
 </div>
+
+<script>
+function searchCounty(){
+let q=document.getElementById('countySearch').value.toLowerCase();
+let cards=document.getElementById('counties').children;
+for(let c of cards){c.style.display=c.innerText.toLowerCase().includes(q)?'':'none';}
+}
+</script>
+
 </div>
-</section>
-<section class="bg-green-900 text-white py-12 text-center">
-<h2 class="text-2xl font-bold">Search → Apply → Get Transfer Letter</h2>
-<a href="https://wa.me/254700000000" class="mt-6 inline-block bg-white text-green-900 px-8 py-3 rounded-xl font-bold">WhatsApp: Start Transfer Now</a>
-</section>
-<footer class="bg-gray-900 text-white py-8 text-center text-sm">© 2026 ShuleShift • Ruiru • https://shuleshift.co.ke</footer>
+<div class="bg-green-900 text-white p-8 text-center mt-10">
+<h2 class="text-2xl font-bold">All 47 Counties - WhatsApp 0183179040</h2>
+<p class="mt-2 text-sm">shuleshift.co.ke | Ruiru, Kiambu, Kenya</p>
+</div>
 </body>
 </html>
