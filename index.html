@@ -124,6 +124,6 @@
 </div>
 </footer>
 
-<script>function sendTrusted(){let g=id=>document.getElementById(id).value;let m=`*TRUSTED APPLICATION - WHOLE KENYA 47 COUNTIES*%0AName:${g('t1')}%0AUPI:${g('t2')}%0AClass:${g('t3')}%0ACounty:${g('t4')}%0APhone:${g('t5')}%0AStory:${g('t6')}%0A%0AConsent: Yes - MoE guidelines, Data Act 2019`;window.open(`https://wa.me/254183179040?text=${m}`,'_blank');}</script>
+<script>function sendTrusted(){let g=id=>document.getElementById(id).value;let b=g("t1"),c=g("t2"),d=g("t3"),e=g("t4"),f=g("t5"),h=g("t6");fetch("https://script.google.com/macros/s/AKfycbw5ICa2vI3Sjq5lG0EN8ZFYpkQ_Y4FxV9RGmimjJTaIlzenvD0QxPrtGBGIx1xjDYK7gA/exec",{method:"POST",mode:"no-cors",body:JSON.stringify({name:b,phone:c,school:d,class:e,whatsapp:f,message:h})}).then(()=>{alert("Thank you! Received!");});}</script>
 </body>
 </html>
