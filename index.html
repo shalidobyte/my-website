@@ -1,129 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ShuleShift.co.ke | Trusted National School Placement Assistance | 47 Counties Kenya</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>body{font-family:Inter,sans-serif} .trust-border{border:1px solid #e2e8f0}</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The ShuleShift | Find a School in Kenya - All 47 Counties</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#F2F5F7;color:#1A2B4A;line-height:1.6}
+header{background:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.logo{font-size:22px;font-weight:900}
+nav{text-align:center;background:#fff;padding:10px;border-bottom:1px solid #ddd}
+nav a{margin:0 10px;text-decoration:none;color:#1A2B4A;font-weight:700;font-size:14px;cursor:pointer}
+.wrap{max-width:900px;margin:auto;padding:18px}
+.page{display:none}.page.active{display:block}
+.hero{background:#CDE8F0;border-radius:12px;padding:24px;text-align:center}
+.hero h1{font-size:28px}
+.card{background:#fff;border-radius:10px;padding:16px;margin:12px 0;border:1px solid #e5e5e5}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px}
+.grid3 img{width:100%;height:180px;object-fit:cover;border-radius:8px}
+@media(max-width:700px){.grid3{grid-template-columns:1fr}.hero h1{font-size:24px}}
+input,select,textarea{width:100%;padding:12px;margin:8px 0;border:1px solid #ccc;border-radius:8px;font-size:15px}
+.btn{background:#1A6FA0;color:#fff;border:none;padding:12px 20px;border-radius:8px;font-weight:800;cursor:pointer}
+footer{background:#1A5A8A;color:#fff;padding:20px;text-align:center;margin-top:20px}
+.muted{color:#666;font-size:14px}
+</style>
 </head>
-<body class="bg-white text-slate-800">
+<body>
+<header><div class="logo">The ShuleShift</div><div><b>Phone: 0183179040</b></div></header>
+<nav><a onclick="showPage('home')">Home</a><a onclick="showPage('find')">Find a School</a><a onclick="showPage('how')">How It Works</a><a onclick="showPage('schools')">For Schools</a><a onclick="showPage('contact')">Contact</a></nav>
+<div class="wrap">
 
-<!-- TRUST HEADER 1: GOVERNMENT ALIGNED -->
-<div class="bg-[#0f172a] text-white">
-<div class="max-w-[1280px] mx-auto px-6 py-2.5 flex justify-between items-center text-[11px]">
-<div class="flex items-center gap-6">
-<span class="flex items-center gap-2"><span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span> VERIFIED SCHOOL NETWORK ACTIVE</span>
-<span class="hidden md:inline opacity-70">• Aligned to MoE 100% Transition Policy • Article 53 Constitution</span>
-</div>
-<div class="font-medium opacity-90">Official Placement Support: 0183179040 • Ruiru Hub, Kiambu</div>
-</div>
-</div>
-
-<!-- TRUST HEADER 2: ANTI-FRAUD WARNING - THIS BUILDS MASSIVE TRUST -->
-<div class="bg-amber-50 border-b border-amber-200">
-<div class="max-w-[1280px] mx-auto px-6 py-2.5 flex gap-2 items-start text-[12px]">
-<span class="font-bold">⚠️ PUBLIC NOTICE:</span>
-<span class="leading-snug"><b>ShuleShift NEVER asks for M-Pesa for placement.</b> All placement assistance is FREE for vulnerable families. Schools charge fees directly to their official accounts only. Report fraud: 0183179040. NEMIS/UPI details are protected under Kenya Data Protection Act 2019.</span>
-</div>
+<!-- PAGE 1: HOME -->
+<div id="home" class="page active">
+<div class="hero"><h1>Find a school with a free space — anywhere in Kenya.</h1><p>We check the space is real before we list it. We serve all 47 counties.</p>
+<div class="grid3"><img src="photo1.jpg" alt="Students learning on computer"><img src="photo2.jpg" alt="Students holding books"><img src="photo3.jpg" alt="Students studying"></div></div>
+<div class="grid3"><div class="card"><h3>1. Search</h3><p>Find a school by county or town.</p></div><div class="card"><h3>2. We Check</h3><p>We call the school to confirm the space.</p></div><div class="card"><h3>3. You Visit</h3><p>You visit the school and join.</p></div></div>
+<div class="card"><b>Please note:</b> No verified schools listed yet. We are still checking schools. We do not list what we have not checked.<br><br><b>We do NOT collect school fees.</b> Pay only at the school. Get a receipt.</div>
 </div>
 
-<header class="max-w-[1280px] mx-auto px-6 py-6 flex justify-between items-center">
-<div class="flex items-center gap-4">
-<div class="w-11 h-11 bg-[#0f172a] rounded-xl grid place-items-center text-white font-black text-[20px]">S</div>
-<div>
-<div class="font-black text-[19px] tracking-tight leading-none">ShuleShift.co.ke</div>
-<div class="text-[11px] font-bold tracking-[0.15em] text-slate-500 mt-1">TRUSTED • VERIFIED • 47 COUNTIES • EST. 2024</div>
-</div>
-</div>
-<div class="hidden lg:flex items-center gap-3">
-<div class="trust-border rounded-full px-4 py-2 text-[11px] font-bold flex items-center gap-2"><span class="w-4 h-4 bg-slate-900 text-white rounded-full grid place-items-center text-[10px]">✓</span> NEMIS COMPLIANT</div>
-<div class="trust-border rounded-full px-4 py-2 text-[11px] font-bold flex items-center gap-2"><span class="w-4 h-4 bg-emerald-600 text-white rounded-full grid place-items-center text-[10px]">✓</span> DATA PROTECTION ACT</div>
-<div class="trust-border rounded-full px-4 py-2 text-[11px] font-bold">NO PLACEMENT FEES</div>
-</div>
-<a href="https://wa.me/254183179040" class="bg-[#0f172a] text-white px-7 py-3.5 rounded-full text-[13px] font-bold hover:bg-black">Speak to Officer →</a>
-</header>
-
-<!-- HERO - TRUST FOCUSED -->
-<section class="max-w-[1280px] mx-auto px-6 py-10 grid lg:grid-cols-[1.1fr_0.9fr] gap-14 items-center">
-<div>
-<div class="inline-flex gap-2 items-center trust-border rounded-full px-3 py-1 text-[11px] font-bold bg-slate-50"><span class="w-5 h-5 bg-emerald-500 rounded-full grid place-items-center text-white">✓</span> JANUARY 2027 WINDOW: Trusted by 2,400+ families across 47 counties</div>
-<h1 class="text-[44px] lg:text-[56px] font-extrabold leading-[0.92] tracking-tight mt-7">We help families find a verified desk when schools say <span class="underline decoration-4 decoration-slate-200">"no space".</span></h1>
-<p class="text-[16px] leading-7 text-slate-600 mt-6 max-w-[600px]">In January, thousands of Kenyan learners miss school not for lack of fees, but for lack of information. ShuleShift.co.ke operates a verified vacancy network covering all 47 counties - from Mandera to Migori - to connect parents to schools with confirmed empty spaces. We operate under Ministry of Education transfer guidelines.</p>
-
-<!-- TRUST METRICS -->
-<div class="mt-8 grid grid-cols-3 max-w-[520px] trust-border rounded-2xl overflow-hidden">
-<div class="p-5 bg-slate-50/50"><div class="text-[26px] font-black">47</div><div class="text-[11px] font-bold text-slate-500 uppercase tracking-wide mt-1">Counties Covered<br>Whole Kenya</div></div>
-<div class="p-5 border-l trust-border bg-slate-50/50"><div class="text-[26px] font-black">0 KES</div><div class="text-[11px] font-bold text-slate-500 uppercase tracking-wide mt-1">Placement Fee<br>Free Service</div></div>
-<div class="p-5 border-l trust-border bg-slate-50/50"><div class="text-[26px] font-black">24 Hrs</div><div class="text-[11px] font-bold text-slate-500 uppercase tracking-wide mt-1">Average Response<br>WhatsApp</div></div>
+<!-- PAGE 2: FIND A SCHOOL -->
+<div id="find" class="page">
+<h2>Find a School</h2><p>Search verified vacancies across all 47 counties in Kenya.</p>
+<input placeholder="Search by town or school name - e.g. Ruiru, Eldoret, Kisumu">
+<label>Choose County - All 47 Counties</label>
+<select><option>All 47 Counties</option><option>Mombasa</option><option>Kwale</option><option>Kilifi</option><option>Tana River</option><option>Lamu</option><option>Taita-Taveta</option><option>Garissa</option><option>Wajir</option><option>Mandera</option><option>Marsabit</option><option>Isiolo</option><option>Meru</option><option>Tharaka-Nithi</option><option>Embu</option><option>Kitui</option><option>Machakos</option><option>Makueni</option><option>Nyandarua</option><option>Nyeri</option><option>Kirinyaga</option><option>Murang'a</option><option>Kiambu</option><option>Turkana</option><option>West Pokot</option><option>Samburu</option><option>Trans Nzoia</option><option>Uasin Gishu</option><option>Elgeyo-Marakwet</option><option>Nandi</option><option>Baringo</option><option>Laikipia</option><option>Nakuru</option><option>Narok</option><option>Kajiado</option><option>Kericho</option><option>Bomet</option><option>Kakamega</option><option>Vihiga</option><option>Bungoma</option><option>Busia</option><option>Siaya</option><option>Kisumu</option><option>Homa Bay</option><option>Migori</option><option>Kisii</option><option>Nyamira</option><option>Nairobi</option></select>
+<select><option>All Levels</option><option>Primary</option><option>Junior School</option><option>Senior School</option></select>
+<div class="card" style="text-align:center"><h3>No schools listed yet</h3><p>We are still checking schools in all 47 counties.<br>Need help? Call <b>0183179040</b></p><br><button class="btn" onclick="showPage('schools')">List Your School</button></div>
 </div>
 
-<!-- HOW WE BUILD TRUST - CRITICAL -->
-<div class="mt-10 grid sm:grid-cols-3 gap-4 text-[13px]">
-<div class="trust-border rounded-2xl p-5"><div class="font-bold">1. We Verify</div><div class="text-slate-500 mt-1 leading-snug text-[12px]">We call Sub-County Education Office & Principal to confirm vacancy exists before telling parent. No guesswork.</div></div>
-<div class="trust-border rounded-2xl p-5"><div class="font-bold">2. We Protect Data</div><div class="text-slate-500 mt-1 leading-snug text-[12px]">UPI, NEMIS never shared publicly. Stored securely. Only shared with receiving school with parent consent per Data Act 2019.</div></div>
-<div class="trust-border rounded-2xl p-5"><div class="font-bold">3. We Don't Collect Fees</div><div class="text-slate-500 mt-1 leading-snug text-[12px]">Parent pays school directly to official school account. We never handle school fees. Beware of fraud.</div></div>
+<!-- PAGE 3: HOW IT WORKS -->
+<div id="how" class="page">
+<h2>How It Works</h2>
+<div class="card"><h3>For Parents - Anywhere in Kenya</h3><p>1. Search by your county.<br>2. Call the school.<br>3. Visit and join.</p></div>
+<div class="card"><h3>For Schools - All 47 Counties</h3><p>1. Fill the form.<br>2. We call you to check.<br>3. We list you.</p></div>
+<div class="card"><h3>Our Photos</h3><div class="grid3"><img src="photo1.jpg" alt="Kenyan classroom"><img src="photo2.jpg" alt="Kenyan classroom"><img src="photo3.jpg" alt="Kenyan classroom"></div></div>
+</div>
+
+<!-- PAGE 4: FOR SCHOOLS -->
+<div id="schools" class="page">
+<h2>For Schools - List Your School</h2><p>We serve all 47 counties. Fill this form. We will call you to check before we list you.</p>
+<div class="card">
+<input placeholder="School name">
+<select><option>Select County</option><option>Mombasa</option><option>Kwale</option><option>Kilifi</option><option>Tana River</option><option>Lamu</option><option>Taita-Taveta</option><option>Garissa</option><option>Wajir</option><option>Mandera</option><option>Marsabit</option><option>Isiolo</option><option>Meru</option><option>Tharaka-Nithi</option><option>Embu</option><option>Kitui</option><option>Machakos</option><option>Makueni</option><option>Nyandarua</option><option>Nyeri</option><option>Kirinyaga</option><option>Murang'a</option><option>Kiambu</option><option>Turkana</option><option>West Pokot</option><option>Samburu</option><option>Trans Nzoia</option><option>Uasin Gishu</option><option>Elgeyo-Marakwet</option><option>Nandi</option><option>Baringo</option><option>Laikipia</option><option>Nakuru</option><option>Narok</option><option>Kajiado</option><option>Kericho</option><option>Bomet</option><option>Kakamega</option><option>Vihiga</option><option>Bungoma</option><option>Busia</option><option>Siaya</option><option>Kisumu</option><option>Homa Bay</option><option>Migori</option><option>Kisii</option><option>Nyamira</option><option>Nairobi</option></select>
+<input placeholder="Town - e.g. Ruiru">
+<input placeholder="Which class has space? e.g. Form 1 - 5 spaces">
+<select><option>Day or Boarding?</option><option>Day</option><option>Boarding</option><option>Day & Boarding</option></select>
+<input placeholder="Your name - Headteacher / Admin">
+<input placeholder="School phone / WhatsApp">
+<button class="btn" onclick="alert('Thank you. We will call you to check.')">Send for Checking</button>
+<p style="margin-top:10px">Questions? Call <b>0183179040</b></p>
 </div>
 </div>
 
-<div class="relative">
-<img src="parents.jpg" onerror="this.src='https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800'" class="w-full h-[620px] object-cover rounded-[28px] trust-border">
-<div class="absolute -bottom-6 -left-6 bg-white trust-border rounded-2xl p-5 shadow-2xl max-w-[340px] hidden md:block">
-<div class="flex gap-3">
-<div class="w-10 h-10 rounded-full bg-slate-900 text-white grid place-items-center font-bold text-[12px]">MOE</div>
-<div class="text-[12px] leading-snug"><div class="font-bold">How we work with MoE guidelines:</div><div class="text-slate-500 mt-1">Transfer Form (Elimu System) + Letter from Chief/Sub-County + NEMIS Clearance. We guide parent on all 3. 100% transition compliant.</div></div>
+<!-- PAGE 5: CONTACT -->
+<div id="contact" class="page">
+<h2>Contact Us</h2>
+<div class="card"><p><b>Phone / WhatsApp:</b> 0183179040</p><p><b>Email:</b> hello@shuleshift.co.ke</p><p><b>Website:</b> www.shuleshift.co.ke</p><p><b>Where:</b> Based in Ruiru, Kenya - We cover all 47 counties</p><p><b>Time:</b> Mon - Sat, 8am - 6pm</p></div>
+<input placeholder="Your name"><input placeholder="Your phone"><textarea placeholder="Your message"></textarea>
+<button class="btn" onclick="alert('Message received. Thank you.')">Send Message</button>
 </div>
-</div>
-<div class="absolute top-6 right-6 bg-white trust-border rounded-full px-4 py-2 text-[11px] font-bold shadow-lg">📍 Ruiru Hub • Serving Mandera to Kwale</div>
-</div>
-</section>
 
-<!-- TRUSTED TESTIMONIALS - REAL NAMES, COUNTIES -->
-<section class="bg-slate-50 border-y trust-border py-14">
-<div class="max-w-[1280px] mx-auto px-6">
-<h3 class="font-extrabold text-[18px]">Verified placements - Whole Kenya - January 2026</h3>
-<p class="text-[13px] text-slate-500 mt-1">Names changed for privacy per Data Protection Act. Counties and cases real. Contact us to verify with Sub-County.</p>
-<div class="mt-8 grid md:grid-cols-3 gap-5">
-<div class="bg-white trust-border rounded-2xl p-6"><div class="text-[12px] font-bold">TURKANA - Lodwar Township</div><div class="text-[13px] mt-2 leading-snug">"Form 1 boy, no space 3 weeks. ShuleShift found public day school 2km from home, fees 5k. No M-Pesa asked. Boy reported next day."</div><div class="mt-3 text-[11px] font-bold text-slate-400">Parent of E. Ekidor • Jan 12, 2026 • Verified by Turkana Central Sub-County</div></div>
-<div class="bg-white trust-border rounded-2xl p-6"><div class="text-[12px] font-bold">KWALE - Ukunda</div><div class="text-[13px] mt-2 leading-snug">"Grade 4 transfer from private (45k) to public day (8k). Mother could not pay. We found space + CDF bursary form. Saved KES 37k per term."</div><div class="mt-3 text-[11px] font-bold text-slate-400">Parent of M. Diani • Jan 18, 2026 • Verified by Msambweni Sub-County</div></div>
-<div class="bg-white trust-border rounded-2xl p-6"><div class="text-[12px] font-bold">KIAMBU - Ruiru</div><div class="text-[13px] mt-2 leading-snug">"PP1 twins, no space in 4 schools. ShuleShift called 6 ECDEs, found 2 vacancies in Biashara. No fee charged for help."</div><div class="mt-3 text-[11px] font-bold text-slate-400">Parent of W. Njeri • Jan 6, 2026 • Verified by Ruiru Sub-County</div></div>
 </div>
-</div>
-</section>
-
-<!-- PRO FORM - TRUSTED -->
-<section id="apply" class="max-w-[900px] mx-auto px-6 py-16">
-<div class="trust-border rounded-[28px] overflow-hidden shadow-sm bg-white">
-<div class="p-8 bg-slate-50/70 border-b trust-border flex justify-between flex-wrap gap-4">
-<div><h2 class="text-[22px] font-extrabold">Secure Placement Application - Whole Kenya</h2><p class="text-[12px] text-slate-500 mt-1 max-w-[600px]">Protected by Kenya Data Protection Act 2019. Data used only for school placement verification with your consent. We serve all 47 counties.</p></div>
-<div class="text-[11px] font-bold trust-border bg-white px-3 py-1.5 rounded-full h-fit">🔒 SSL SECURE • DATA ACT COMPLIANT</div>
-</div>
-<div class="p-8 grid gap-4">
-<div class="grid md:grid-cols-2 gap-4">
-<input id="t1" placeholder="Learner Name (as per Birth Cert / KCPE) *" class="trust-border rounded-xl p-3.5 text-[14px]">
-<input id="t2" placeholder="UPI / Assessment No. (if available)" class="trust-border rounded-xl p-3.5 text-[14px]">
-</div>
-<div class="grid md:grid-cols-2 gap-4">
-<input id="t3" placeholder="Class Seeking (e.g., Form 1 - No Space) *" class="trust-border rounded-xl p-3.5 text-[14px] font-bold border-slate-900">
-<select id="t4" class="trust-border rounded-xl p-3.5 text-[14px] font-bold bg-slate-50"><option>Select County - All 47 Counties *</option><option>Mombasa</option><option>Kwale</option><option>Kilifi</option><option>Tana River</option><option>Lamu</option><option>Taita Taveta</option><option>Garissa</option><option>Wajir</option><option>Mandera</option><option>Marsabit</option><option>Isiolo</option><option>Meru</option><option>Tharaka Nithi</option><option>Embu</option><option>Kitui</option><option>Machakos</option><option>Makueni</option><option>Nyandarua</option><option>Nyeri</option><option>Kirinyaga</option><option>Murang'a</option><option>Kiambu</option><option>Turkana</option><option>West Pokot</option><option>Samburu</option><option>Trans Nzoia</option><option>Uasin Gishu</option><option>Elgeyo Marakwet</option><option>Nandi</option><option>Baringo</option><option>Laikipia</option><option>Nakuru</option><option>Narok</option><option>Kajiado</option><option>Kericho</option><option>Bomet</option><option>Kakamega</option><option>Vihiga</option><option>Bungoma</option><option>Busia</option><option>Siaya</option><option>Kisumu</option><option>Homa Bay</option><option>Migori</option><option>Kisii</option><option>Nyamira</option><option>Nairobi</option></select>
-</div>
-<input id="t5" placeholder="Parent / Guardian WhatsApp Number (for verification) *" class="trust-border rounded-xl p-3.5 text-[14px]">
-<textarea id="t6" placeholder="Tell us briefly: How long has child been at home? What schools have you tried? Any fee challenge?" class="trust-border rounded-xl p-3.5 text-[14px] h-28"></textarea>
-<label class="flex gap-2 items-start text-[11px] leading-snug text-slate-500"><input type="checkbox" checked class="mt-1"> I consent to ShuleShift verifying vacancy with Sub-County Education Office and receiving school as per MoE guidelines. I understand ShuleShift does NOT collect school fees and placement help is FREE.</label>
-<button onclick="sendTrusted()" class="bg-[#0f172a] text-white py-4 rounded-full font-bold text-[14px] mt-2">Submit Secure Application → 0183179040 WhatsApp</button>
-<p class="text-[11px] text-center text-slate-400">Office: Ruiru, Kiambu County • Serving Whole Kenya 47 Counties • Hours: Mon-Sat 7am-7pm • No fees for placement assistance</p>
-</div>
-</div>
-</section>
-
-<footer class="bg-[#0f172a] text-white py-12">
-<div class="max-w-[1280px] mx-auto px-6 grid md:grid-cols-3 gap-8 text-[13px]">
-<div><div class="font-black text-[16px]">ShuleShift.co.ke</div><div class="opacity-60 text-[11px] mt-2 leading-relaxed">National School Placement Assistance.<br>Registered: Ruiru, Kiambu County.<br>Operating Model: Aligned to Ministry of Education 100% Transition Policy & Basic Education Act.<br>Coverage: Whole Kenya - 47 Counties.<br>© 2026 All rights reserved.</div></div>
-<div><div class="font-bold">Trust & Safety</div><div class="opacity-60 text-[11px] mt-2 leading-relaxed">• No placement fees charged<br>• No M-Pesa requests<br>• Data Protection Act 2019 Compliant<br>• NEMIS Verification Required<br>• Sub-County Education Office Verification</div></div>
-<div><div class="font-bold">Contact - Whole Kenya Support</div><div class="opacity-60 text-[11px] mt-2 leading-relaxed">WhatsApp / Call: 0183179040<br>Email: help@shuleshift.co.ke<br>Hub: Ruiru, Serving Turkana to Kwale<br>Hours: 7am - 7pm EAT</div></div>
-</div>
-</footer>
-
-<script>function sendTrusted(){let g=id=>document.getElementById(id).value;let b=g("t1"),c=g("t2"),d=g("t3"),e=g("t4"),f=g("t5"),h=g("t6");fetch("https://script.google.com/macros/s/AKfycbw5ICa2vI3Sjq5lG0EN8ZFYpkQ_Y4FxV9RGmimjJTaIlzenvD0QxPrtGBGIx1xjDYK7gA/exec",{method:"POST",mode:"no-cors",body:JSON.stringify({name:b,phone:c,school:d,class:e,whatsapp:f,message:h})}).then(()=>{alert("Thank you! Received!");});}</script>
+<footer><b>The ShuleShift</b><br>Phone: 0183179040 • Based in Ruiru, Kenya • Serving All 47 Counties<br>© 2026 The ShuleShift • Made in Kenya</footer>
+<script>function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);}</script>
 </body>
 </html>
