@@ -1,139 +1,106 @@
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The ShuleShift | Find a School in Kenya</title>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The ShuleShift - Find School Spaces in All 47 Counties</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f5f5f5;color:#1A2B4A;line-height:1.6}
-header{background:#fff;padding:14px 20px;text-align:center;position:sticky;top:0;z-index:100}
-.logo{font-size:22px;font-weight:900}
-nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;background:#fff;padding-bottom:10px;position:sticky;top:48px;z-index:99}
-nav a{padding:8px 12px;text-decoration:none;color:#1A2B4A;font-weight:700;font-size:14px;cursor:pointer;border-bottom:2px solid #eee}
-nav a.active{border-bottom:3px solid #1A2B4A}
-.page{display:none;padding:20px;max-width:900px;margin:auto}
-.page.active{display:block}
-.hero{background:#CDE8FF;border-radius:12px;padding:24px;text-align:center}
-.hero h1{font-size:28px}
-.hero p{font-size:18px}
-.card{background:#fff;border-radius:12px;padding:16px;margin:12px 0}
-.card img{width:100%;border-radius:12px;margin:10px 0}
-input,select,textarea{width:100%;padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:8px}
-button{background:#1A2B4A;color:#fff;padding:12px 20px;border:none;border-radius:8px;font-weight:700;width:100%;cursor:pointer}
-footer{text-align:center;padding:20px;color:#666}
-</style>
-</head>
-<body>
+body{background:#f8f9ff;color:#1a1a2e}
+header{background:#0a0a5c;color:white;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10;flex-wrap:wrap}
+header a{color:white;text-decoration:none;margin:0 8px;font-weight:700;cursor:pointer} header a:hover,header a.active{color:#FFC107}
+.logo{font-weight:900;font-size:22px}.logo span{color:#FFC107}
+.page{display:none}.page.active{display:block}
+.wrap{max-width:1000px;margin:auto;padding:40px 20px}
+.hero{background:#0a0a5c;color:white;text-align:center;padding:50px 20px}
+.hero img,.wrap img{width:100%;max-width:800px;border-radius:18px;margin-top:20px}
+.btn{background:#FFC107;color:#0a0a5c;padding:15px 30px;border-radius:30px;text-decoration:none;font-weight:900;display:inline-block;border:none;cursor:pointer}
+.btn2{background:white;color:#0a0a5c;padding:15px 30px;border-radius:30px;text-decoration:none;font-weight:900;display:inline-block;margin-left:10px}
+select,input,textarea{width:100%;padding:14px;margin:8px 0;border:1px solid #ddd;border-radius:10px}
+.card{background:white;padding:25px;border-radius:16px;box-shadow:0 5px 20px rgba(0,0,0,.08);text-align:center}
+.school{background:white;padding:20px;border-radius:14px;margin:15px 0;display:flex;justify-content:space-between;align-items:center;box-shadow:0 3px 12px rgba(0,0,0,.06);flex-wrap:wrap;gap:10px}
+.box{background:white;padding:25px;border-radius:16px;margin:15px 0;text-align:left;box-shadow:0 3px 12px rgba(0,0,0,.06)}
+.flex{display:flex;gap:20px;flex-wrap:wrap}.left,.right{background:white;padding:25px;border-radius:16px;flex:1;min-width:280px;box-shadow:0 3px 12px rgba(0,0,0,.06)}
+.contact-bar{background:#FFC107;padding:30px 20px;text-align:center}
+footer{background:#0a0a5c;color:white;text-align:center;padding:25px;line-height:1.8}
+footer a{color:#FFC107;text-decoration:none;font-weight:700}
+.wa{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:14px 20px;border-radius:50px;text-decoration:none;font-weight:900;z-index:20}
+</style></head><body>
 
-<header><div class="logo">The ShuleShift</div></header>
-
-<nav>
-<a onclick="showPage('home')" id="link-home" class="active">Home</a>
-<a onclick="showPage('find')" id="link-find">Find a School</a>
-<a onclick="showPage('list')" id="link-list">List Your School</a>
-<a onclick="showPage('about')" id="link-about">About Us</a>
-<a onclick="showPage('contact')" id="link-contact">Contact</a>
-</nav>
+<header><div class="logo">🎓 The <span>ShuleShift</span></div><nav>
+<a onclick="show('home',this)" class="active">Home</a>
+<a onclick="show('schools',this)">Find Schools</a>
+<a onclick="show('for-schools',this)">For Schools</a>
+<a onclick="show('about',this)">About</a>
+<a onclick="show('contact',this)">Contact</a>
+</nav></header>
 
 <!-- PAGE 1: HOME -->
 <div id="home" class="page active">
-<div class="hero">
-<h1>Find a school with a free space - anywhere in Kenya</h1>
-<p>Search all 47 counties. No more moving school to school.</p>
-</div>
-<div class="card">
-<h2>Welcome to ShuleShift</h2>
-<p>Please note: No verified schools listed yet. We are still collecting schools.</p>
-<img src="photo1.jpeg">
-<img src="photo2.jpeg">
-<p>We help parents find real, verified free spaces fast.</p>
-</div>
-<div class="card">
-<h3>How it works</h3>
-<p>1. Search your county &rarr; 2. See schools with free spaces &rarr; 3. Contact the school directly</p>
-<button onclick="showPage('find')">Find a School Now</button>
-</div>
+<div class="hero"><h1 style="font-size:40px;line-height:1.2">Find a School Space<br><span style="color:#FFC107">In All 47 Counties</span></h1><p style="margin:20px 0;font-size:18px">Search by county, see spaces, see fees, WhatsApp the school. FREE for parents.</p><img src="photo.jpg" alt="The ShuleShift"><p style="margin-top:20px">📍 Ruiru • Kiambu • Nairobi • All 47 Counties | 📞 0183 179 040</p></div>
+<div class="wrap" style="background:white;border-radius:16px;box-shadow:0 5px 20px rgba(0,0,0,.08)"><h2 style="text-align:center">Find a School Now</h2>
+<select><option>Select County - All 47 Counties</option><option>Mombasa</option><option>Kwale</option><option>Kilifi</option><option>Tana River</option><option>Lamu</option><option>Taita-Taveta</option><option>Garissa</option><option>Wajir</option><option>Mandera</option><option>Marsabit</option><option>Isiolo</option><option>Meru</option><option>Tharaka-Nithi</option><option>Embu</option><option>Kitui</option><option>Machakos</option><option>Makueni</option><option>Nyandarua</option><option>Nyeri</option><option>Kirinyaga</option><option>Murang'a</option><option>Kiambu</option><option>Turkana</option><option>West Pokot</option><option>Samburu</option><option>Trans Nzoia</option><option>Uasin Gishu</option><option>Elgeyo-Marakwet</option><option>Nandi</option><option>Baringo</option><option>Laikipia</option><option>Nakuru</option><option>Narok</option><option>Kajiado</option><option>Kericho</option><option>Bomet</option><option>Kakamega</option><option>Vihiga</option><option>Bungoma</option><option>Busia</option><option>Siaya</option><option>Kisumu</option><option>Homa Bay</option><option>Migori</option><option>Kisii</option><option>Nyamira</option><option>Nairobi</option></select>
+<select><option>All Classes</option><option>PP1 / PP2</option><option>Grade 1 - 6</option><option>Grade 7 - 9 (JSS)</option><option>Form 1 - 4</option></select>
+<div style="text-align:center;margin-top:10px"><button class="btn" onclick="show('schools',document.querySelectorAll('nav a')[1])">Search Schools →</button> <a href="https://wa.me/254183179040" class="btn2">WhatsApp Us</a></div></div>
+<div class="wrap" style="display:flex;gap:15px;flex-wrap:wrap;justify-content:center">
+<div class="card" style="width:280px"><h2>🔍</h2><h3>1. Choose County</h3><p>Pick any of the 47 counties. From Mombasa to Turkana.</p></div>
+<div class="card" style="width:280px"><h2>💰</h2><h3>2. See Fees & Spaces</h3><p>No hidden fees. See spaces before you visit.</p></div>
+<div class="card" style="width:280px"><h2>💬</h2><h3>3. WhatsApp School</h3><p>Chat directly with the school. No delay.</p></div></div>
 </div>
 
-<!-- PAGE 2: FIND A SCHOOL -->
-<div id="find" class="page">
-<div class="hero"><h1>Find a School</h1><p>Search by county, level, or school name</p></div>
-<div class="card">
-<input type="text" id="searchBox" placeholder="Search school, town, county..." onkeyup="filterSchools()">
-<select><option>All Counties</option><option>Nairobi</option><option>Kiambu</option><option>Mombasa</option><option>Kisumu</option><option>Nakuru</option></select>
-<select><option>All Levels</option><option>PP1 - PP2</option><option>Grade 1-6</option><option>JSS Grade 7-9</option><option>Form 1-4</option></select>
-<div id="schoolList">
-<p><b>Example School - Ruiru, Kiambu</b><br>Grade 4 - 2 spaces - Boarding / Day<br><button>View Details</button></p>
-<p><b>Example School - Westlands, Nairobi</b><br>Form 1 - 5 spaces - Day<br><button>View Details</button></p>
-<p><b>Example School - Nyali, Mombasa</b><br>Grade 2 - 3 spaces - Day<br><button>View Details</button></p>
-</div>
-</div>
+<!-- PAGE 2: FIND SCHOOLS -->
+<div id="schools" class="page">
+<div class="wrap"><h1>Find Schools With Spaces</h1><p style="margin:10px 0">Search in all 47 counties. FREE for parents.</p><img src="photo.jpg" alt="Students">
+<select><option>Select County - All 47 Counties</option><option>Mombasa</option><option>Kwale</option><option>Kilifi</option><option>Tana River</option><option>Lamu</option><option>Taita-Taveta</option><option>Garissa</option><option>Wajir</option><option>Mandera</option><option>Marsabit</option><option>Isiolo</option><option>Meru</option><option>Tharaka-Nithi</option><option>Embu</option><option>Kitui</option><option>Machakos</option><option>Makueni</option><option>Nyandarua</option><option>Nyeri</option><option>Kirinyaga</option><option>Murang'a</option><option>Kiambu</option><option>Turkana</option><option>West Pokot</option><option>Samburu</option><option>Trans Nzoia</option><option>Uasin Gishu</option><option>Elgeyo-Marakwet</option><option>Nandi</option><option>Baringo</option><option>Laikipia</option><option>Nakuru</option><option>Narok</option><option>Kajiado</option><option>Kericho</option><option>Bomet</option><option>Kakamega</option><option>Vihiga</option><option>Bungoma</option><option>Busia</option><option>Siaya</option><option>Kisumu</option><option>Homa Bay</option><option>Migori</option><option>Kisii</option><option>Nyamira</option><option>Nairobi</option></select>
+<select><option>All Classes</option><option>PP1 / PP2</option><option>Grade 1 - 6</option><option>Grade 7 - 9 (JSS)</option><option>Form 1 - 4</option></select>
+<div class="school"><div><h3>School in Ruiru, Kiambu</h3><p>Grade 1-6 • Spaces Available • Fees on WhatsApp</p></div><a class="btn" href="https://wa.me/254183179040" style="padding:10px 18px">WhatsApp →</a></div>
+<div class="school"><div><h3>School in Juja, Kiambu</h3><p>PP1 - Grade 6 • Spaces Available • Fees on WhatsApp</p></div><a class="btn" href="https://wa.me/254183179040" style="padding:10px 18px">WhatsApp →</a></div>
+<div class="school"><div><h3>School in Nakuru, Nakuru County</h3><p>Grade 7-9 • Spaces Available • Fees on WhatsApp</p></div><a class="btn" href="https://wa.me/254183179040" style="padding:10px 18px">WhatsApp →</a></div>
+<p style="text-align:center;margin-top:20px">Don't see your school? <a href="https://wa.me/254183179040">WhatsApp us on 0183 179 040</a></p></div>
 </div>
 
-<!-- PAGE 3: LIST YOUR SCHOOL -->
-<div id="list" class="page">
-<div class="hero"><h1>List Your School</h1><p>Are you a school with free spaces? Get found by parents.</p></div>
-<div class="card">
-<h2>Add Your School - FREE</h2>
-<input placeholder="School Name">
-<input placeholder="County - e.g. Kiambu">
-<input placeholder="Town / Estate - e.g. Ruiru">
-<select><option>School Level</option><option>Kindergarten</option><option>Primary</option><option>Junior Secondary</option><option>High School</option></select>
-<input placeholder="Class with space - e.g. Grade 4, Form 1">
-<input placeholder="Number of spaces available">
-<input placeholder="Phone / WhatsApp Number">
-<textarea placeholder="About your school, fees, transport..."></textarea>
-<button>Submit School for Verification</button>
-</div>
+<!-- PAGE 3: FOR SCHOOLS -->
+<div id="for-schools" class="page">
+<div class="wrap" style="text-align:center"><h1>Schools: Fill Your Empty Spaces</h1><p style="margin:10px 0">We send you parents from all 47 counties who are already looking.</p><img src="photo.jpg" alt="School">
+<div class="box"><h3>✅ Basic Listing - FREE</h3><p>Your school name, county, town, classes, fees. For all 47 counties.</p></div>
+<div class="box" style="border:2px solid #FFC107"><h3>⭐ Featured Listing - Ksh 2,000 / term</h3><p>Appear at the TOP of your county. Get more WhatsApp leads.</p></div>
+<div class="box"><h3>🎯 Per Student - Ksh 5,000</h3><p>Pay only when a parent from ShuleShift joins your school.</p></div>
+<a class="btn" href="https://wa.me/254183179040?text=Hi,%20I%20want%20to%20list%20my%20school">List My School on WhatsApp →</a></div>
 </div>
 
-<!-- PAGE 4: ABOUT US -->
+<!-- PAGE 4: ABOUT -->
 <div id="about" class="page">
-<div class="hero"><h1>About ShuleShift</h1><p>We make it easy to find a school with space in Kenya.</p></div>
-<div class="card">
-<h2>Our Story</h2>
-<p>Parents in Kenya move from school to school looking for a free space. It wastes time, money and hope. ShuleShift was created to fix that.</p>
-<img src="photo1.jpeg">
-<p>We connect parents directly to verified schools with real, available spaces in all 47 counties.</p>
-</div>
-<div class="card">
-<h2>Why ShuleShift?</h2>
-<p>✅ Save time - No more walking school to school<br>✅ Verified spaces - Schools confirm their spaces<br>✅ All 47 Counties - From Nairobi to Turkana<br>✅ Direct Contact - Talk to the school, not a middleman</p>
-</div>
+<div class="wrap"><h1>Why ShuleShift?</h1><img src="photo.jpg" alt="ShuleShift">
+<p>Parents in Ruiru, Juja, Thika and across Kenya were walking from school to school asking for spaces. We made it simple.</p><br>
+<p><b>Our Mission:</b> Make it easy for every parent in all 47 counties to find a school space, see fees, and talk to the school in minutes.</p><br>
+<p><b>For Parents:</b> Always FREE. All 47 counties.</p><p><b>For Schools:</b> Get serious parents, not random walk-ins.</p><br>
+<p>Based in Ruiru, Kiambu, Kenya. WhatsApp us: <b>0183 179 040</b></p></div>
 </div>
 
 <!-- PAGE 5: CONTACT -->
 <div id="contact" class="page">
-<div class="hero"><h1>Contact Us</h1><p>We reply fast on WhatsApp.</p></div>
-<div class="card">
-<h2>Talk to Us</h2>
-<p><b>WhatsApp:</b> +254 700 000 000<br><b>Email:</b> hello@shuleshift.co.ke<br><b>Location:</b> Ruiru, Kiambu, Kenya</p>
-<input placeholder="Your Name">
-<input placeholder="Your Phone / WhatsApp">
-<textarea placeholder="Your Message..."></textarea>
-<button>Send Message</button>
-</div>
+<div class="wrap"><h1 style="text-align:center">Contact Us</h1><p style="text-align:center;margin:10px 0">We reply fast on WhatsApp. Serving all 47 counties.</p><img src="photo.jpg" alt="Contact">
+<div class="flex">
+<div class="left"><h2>Talk to Us</h2><br><p><b>WhatsApp:</b><br><a href="https://wa.me/254183179040">+254 183 179 040</a></p><br><p><b>Email:</b><br>hello@shuleshift.co.ke</p><br><p><b>Location:</b><br>Ruiru, Kiambu, Kenya</p><br><p><b>Coverage:</b><br>All 47 Counties in Kenya</p></div>
+<div class="right"><h2>Send us a message</h2><input placeholder="Your Name"><input placeholder="Your Phone / WhatsApp">
+<select><option>Select Your County</option><option>Mombasa</option><option>Kwale</option><option>Kilifi</option><option>Tana River</option><option>Lamu</option><option>Taita-Taveta</option><option>Garissa</option><option>Wajir</option><option>Mandera</option><option>Marsabit</option><option>Isiolo</option><option>Meru</option><option>Tharaka-Nithi</option><option>Embu</option><option>Kitui</option><option>Machakos</option><option>Makueni</option><option>Nyandarua</option><option>Nyeri</option><option>Kirinyaga</option><option>Murang'a</option><option>Kiambu</option><option>Turkana</option><option>West Pokot</option><option>Samburu</option><option>Trans Nzoia</option><option>Uasin Gishu</option><option>Elgeyo-Marakwet</option><option>Nandi</option><option>Baringo</option><option>Laikipia</option><option>Nakuru</option><option>Narok</option><option>Kajiado</option><option>Kericho</option><option>Bomet</option><option>Kakamega</option><option>Vihiga</option><option>Bungoma</option><option>Busia</option><option>Siaya</option><option>Kisumu</option><option>Homa Bay</option><option>Migori</option><option>Kisii</option><option>Nyamira</option><option>Nairobi</option></select>
+<textarea rows="4" placeholder="Your Message - e.g. I need Grade 4 in Kiambu"></textarea><button class="btn" style="background:#0a0a5c;color:white;width:100%" onclick="window.location.href='https://wa.me/254183179040'">Send Message</button></div>
+</div></div>
 </div>
 
-<footer>© 2026 The ShuleShift - shuleshift.co.ke</footer>
+<!-- CONTACT BAR - SAME ON ALL PAGES -->
+<section class="contact-bar"><h2 style="color:#0a0a5c">Need a school space? Talk to us now</h2><p style="margin:12px 0;color:#0a0a5c">We reply fast on WhatsApp. FREE for parents.</p>
+<a href="https://wa.me/254183179040?text=Hi%20ShuleShift,%20I%20need%20a%20school%20space" style="background:#0a0a5c;color:white;padding:14px 28px;border-radius:30px;text-decoration:none;font-weight:900;display:inline-block">💬 WhatsApp: 0183 179 040</a>
+<a href="mailto:hello@shuleshift.co.ke" style="background:white;color:#0a0a5c;padding:14px 28px;border-radius:30px;text-decoration:none;font-weight:900;display:inline-block;margin-left:10px">✉️ hello@shuleshift.co.ke</a>
+<p style="margin-top:12px;color:#0a0a5c">📍 Ruiru, Kiambu, Kenya • Serving All 47 Counties</p></section>
+
+<footer>The ShuleShift • Ruiru, Kiambu, Kenya<br>WhatsApp: <a href="https://wa.me/254183179040">0183 179 040</a> • Email: hello@shuleshift.co.ke<br>Serving All 47 Counties in Kenya</footer>
+<a class="wa" href="https://wa.me/254183179040?text=Hi%20ShuleShift,%20I%20need%20a%20school%20space">💬 WhatsApp</a>
 
 <script>
-function showPage(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
-  document.getElementById('link-'+id).classList.add('active');
-  window.scrollTo(0,0);
-}
-function filterSchools(){
-  let q=document.getElementById('searchBox').value.toLowerCase();
-  document.querySelectorAll('#schoolList p').forEach(p=>{
-    p.style.display = p.innerText.toLowerCase().includes(q) ? 'block' : 'none';
-  });
+function show(id,el){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
+if(el) el.classList.add('active');
+window.scrollTo(0,0);
 }
 </script>
-
-</body>
-</html>
+</body></html>
