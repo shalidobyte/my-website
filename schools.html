@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Schools - The ShuleShift</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+*{box-sizing:border-box} body{margin:0;font-family:Arial,sans-serif;background:#f4f6fb;color:#111}
+header{background:#0b4bd8;color:#fff;padding:22px 16px;text-align:center}
+header h1{margin:0;font-size:28px}
+nav{background:#fff;padding:12px;text-align:center;box-shadow:0 2px 5px rgba(0,0,0,.1);position:sticky;top:0}
+nav a{margin:0 10px;color:#0b4bd8;text-decoration:none;font-weight:bold;font-size:15px}
+nav a.active{color:#000;border-bottom:3px solid #0b4bd8;padding-bottom:3px}
+.wrap{max-width:1000px;margin:0 auto;padding:16px}
+.search{background:#fff;padding:16px;border-radius:14px;display:flex;gap:10px;flex-wrap:wrap}
+input,select,button{padding:12px;border-radius:10px;border:1px solid #ddd;font-size:15px}
+.search input{flex:2;min-width:180px}.search select{flex:1;min-width:140px}
+.btn{background:#0b4bd8;color:#fff;border:0;cursor:pointer;font-weight:bold}
+.btn-green{background:#16a34a}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:16px}
+.card{background:#fff;border-radius:14px;padding:0 0 16px;box-shadow:0 2px 10px rgba(0,0,0,.08);overflow:hidden}
+.card-inner{padding:0 16px}.card img{width:100%;height:180px;object-fit:cover}
+.badge{background:#e0ecff;color:#0b4bd8;padding:4px 10px;border-radius:20px;font-size:13px;font-weight:bold}
+.price{font-size:22px;font-weight:bold;margin:10px 0 4px}.muted{color:#666;font-size:14px}
+</style>
+</head>
+<body>
+<header><h1>🎓 The ShuleShift</h1><p>Find School Space In All 47 Counties</p></header>
+<nav>
+<a href="index.html">🏠 Home</a>
+<a href="schools.html" class="active">🎓 All Schools</a>
+<a href="counties.html">🗺️ Counties</a>
+<a href="about.html">ℹ️ About</a>
+<a href="contact.html">📞 Contact</a>
+</nav>
+<div class="wrap">
+<h2>All Schools</h2>
+<div class="search">
+<input id="searchInput" placeholder="Search school name...">
+<select id="countyFilter"><option value="">All Counties</option></select>
+<button class="btn" onclick="loadSchools()">Search</button>
+</div>
+<p id="countText" class="muted">Loading...</p>
+<div id="schoolsGrid" class="grid"></div>
+</div>
+<script>
+const SUPABASE_URL = "https://ynanzojdqrgwgknpsteh.supabase.co";
+const SUPABASE_KEY = "sb_publishable_StA4FWEbj7rY_LqW8PQDQg_ufc5o0ej";
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const counties = ["Baringo","Bomet","Bungoma","Busia","Elgeyo-Marakwet","Embu","Garissa","Homa Bay","Isiolo","Kajiado","Kakamega","Kericho","Kiambu","Kilifi","Kirinyaga","Kisii","Kisumu","Kitui","Kwale","Laikipia","Lamu","Machakos","Makueni","Mandera","Marsabit","Meru","Migori","Mombasa","Murang'a","Nairobi","Nakuru","Nandi","Narok","Nyamira","Nyandarua","Nyeri","Samburu","Siaya","Taita-Taveta","Tana River","Tharaka-Nithi","Trans Nzoia","Turkana","Uasin Gishu","Vihiga","Wajir","West Pokot"];
+const cf = document.getElementById('countyFilter');
+counties.forEach(c=>{ cf.innerHTML += `<option>${c}</option>`; });
+async function loadSchools(){
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const county = document.getElementById('countyFilter').value;
+  let query = supabaseClient.from('schools').select('*').order('created_at',{ascending:false});
+  if(county) query = query.eq('county', county);
+  const {data, error} = await query;
+  if(error){ document.getElementById('countText').innerText = 'Error: ' + error.message; return; }
+  let filtered = data.filter(s => !q || s.name.toLowerCase().includes(q));
+  document.getElementById('countText').innerText = filtered.length + ' school(s) found';
+  document.getElementById('schoolsGrid').innerHTML = filtered.length ? filtered.map(s=>`
+    <div class="card">
+      <img src="${s.image_url || 'photo1.jpeg'}" onerror="this.src='photo1.jpeg'">
+      <div class="card-inner">
+      <span class="badge">${s.county}</span>
+      <h3>${s.name}</h3>
+      <div class="muted">📍 ${s.location || 'Kenya'} • 🪑 ${s.spaces || 0} spaces left</div>
+      <div class="price">KSh ${(s.fees||0).toLocaleString()} <span style="font-size:13px;font-weight:normal">/ term</span></div>
+      <a href="https://wa.me/254${(s.phone||'').replace(/^0/,'').replace(/\D/g,'')}" target="_blank"><button class="btn btn-green" style="width:100%">Chat on WhatsApp</button></a>
+      </div>
+    </div>`).join('') : '<p>No schools yet.</p>';
+}
+loadSchools();
+</script>
+</body>
+</html>
