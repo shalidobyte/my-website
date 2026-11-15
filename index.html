@@ -1,106 +1,100 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The ShuleShift - Find School Spaces in All 47 Counties</title>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The ShuleShift - Find School Space In All 47 Counties</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f8f9ff;color:#1a1a2e}
-header{background:#0a0a5c;color:white;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10;flex-wrap:wrap}
-header a{color:white;text-decoration:none;margin:0 8px;font-weight:700;cursor:pointer} header a:hover,header a.active{color:#FFC107}
-.logo{font-weight:900;font-size:22px}.logo span{color:#FFC107}
-.page{display:none}.page.active{display:block}
-.wrap{max-width:1000px;margin:auto;padding:40px 20px}
-.hero{background:#0a0a5c;color:white;text-align:center;padding:50px 20px}
-.hero img,.wrap img{width:100%;max-width:800px;border-radius:18px;margin-top:20px}
-.btn{background:#FFC107;color:#0a0a5c;padding:15px 30px;border-radius:30px;text-decoration:none;font-weight:900;display:inline-block;border:none;cursor:pointer}
-.btn2{background:white;color:#0a0a5c;padding:15px 30px;border-radius:30px;text-decoration:none;font-weight:900;display:inline-block;margin-left:10px}
-select,input,textarea{width:100%;padding:14px;margin:8px 0;border:1px solid #ddd;border-radius:10px}
-.card{background:white;padding:25px;border-radius:16px;box-shadow:0 5px 20px rgba(0,0,0,.08);text-align:center}
-.school{background:white;padding:20px;border-radius:14px;margin:15px 0;display:flex;justify-content:space-between;align-items:center;box-shadow:0 3px 12px rgba(0,0,0,.06);flex-wrap:wrap;gap:10px}
-.box{background:white;padding:25px;border-radius:16px;margin:15px 0;text-align:left;box-shadow:0 3px 12px rgba(0,0,0,.06)}
-.flex{display:flex;gap:20px;flex-wrap:wrap}.left,.right{background:white;padding:25px;border-radius:16px;flex:1;min-width:280px;box-shadow:0 3px 12px rgba(0,0,0,.06)}
-.contact-bar{background:#FFC107;padding:30px 20px;text-align:center}
-footer{background:#0a0a5c;color:white;text-align:center;padding:25px;line-height:1.8}
-footer a{color:#FFC107;text-decoration:none;font-weight:700}
-.wa{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:14px 20px;border-radius:50px;text-decoration:none;font-weight:900;z-index:20}
-.two{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.two img{width:48%!important;border-radius:18px}
-</style></head><body>
-
-<header><div class="logo">🎓 The <span>ShuleShift</span></div><nav>
-<a onclick="show('home',this)" class="active">Home</a>
-<a onclick="show('schools',this)">Find Schools</a>
-<a onclick="show('for-schools',this)">For Schools</a>
-<a onclick="show('about',this)">About</a>
-<a onclick="show('contact',this)">Contact</a>
-</nav></header>
-
-<!-- PAGE 1: HOME -->
-<div id="home" class="page active">
-<div class="hero"><h1 style="font-size:40px;line-height:1.2">Find a School Space<br><span style="color:#FFC107">In All 47 Counties</span></h1><p style="margin:20px 0;font-size:18px">Search by county, see spaces, see fees, WhatsApp the school. FREE for parents.</p><div class="two"><img src="photo1.jpeg"><img src="photo2.jpeg"></div><p style="margin-top:20px">📍 Ruiru • Kiambu • Nairobi • All 47 Counties | 📞 0183 179 040</p></div>
-<div class="wrap" style="background:white;border-radius:16px;box-shadow:0 5px 20px rgba(0,0,0,.08)"><h2 style="text-align:center">Find a School Now</h2>
-<select><option>Select County - All 47 Counties</option><option>Mombasa</option><option>Kwale</option><option>Kilifi</option><option>Tana River</option><option>Lamu</option><option>Taita-Taveta</option><option>Garissa</option><option>Wajir</option><option>Mandera</option><option>Marsabit</option><option>Isiolo</option><option>Meru</option><option>Tharaka-Nithi</option><option>Embu</option><option>Kitui</option><option>Machakos</option><option>Makueni</option><option>Nyandarua</option><option>Nyeri</option><option>Kirinyaga</option><option>Murang'a</option><option>Kiambu</option><option>Turkana</option><option>West Pokot</option><option>Samburu</option><option>Trans Nzoia</option><option>Uasin Gishu</option><option>Elgeyo-Marakwet</option><option>Nandi</option><option>Baringo</option><option>Laikipia</option><option>Nakuru</option><option>Narok</option><option>Kajiado</option><option>Kericho</option><option>Bomet</option><option>Kakamega</option><option>Vihiga</option><option>Bungoma</option><option>Busia</option><option>Siaya</option><option>Kisumu</option><option>Homa Bay</option><option>Migori</option><option>Kisii</option><option>Nyamira</option><option>Nairobi</option></select>
-<select><option>All Classes</option><option>PP1 / PP2</option><option>Grade 1 - 6</option><option>Grade 7 - 9 (JSS)</option><option>Form 1 - 4</option></select>
-<div style="text-align:center;margin-top:10px"><button class="btn" onclick="show('schools',document.querySelectorAll('nav a')[1])">Search Schools →</button> <a href="https://wa.me/254183179040" class="btn2">WhatsApp Us</a></div></div>
-<div class="wrap" style="display:flex;gap:15px;flex-wrap:wrap;justify-content:center">
-<div class="card" style="width:280px"><h2>🔍</h2><h3>1. Choose County</h3><p>Pick any of the 47 counties. From Mombasa to Turkana.</p></div>
-<div class="card" style="width:280px"><h2>💰</h2><h3>2. See Fees & Spaces</h3><p>No hidden fees. See spaces before you visit.</p></div>
-<div class="card" style="width:280px"><h2>💬</h2><h3>3. WhatsApp School</h3><p>Chat directly with the school. No delay.</p></div></div>
+*{box-sizing:border-box} body{margin:0;font-family:Arial,sans-serif;background:#f4f6fb;color:#111}
+header{background:#0b4bd8;color:#fff;padding:22px 16px;text-align:center}
+header h1{margin:0;font-size:28px} header p{margin:6px 0 0;opacity:.9}
+.wrap{max-width:1000px;margin:0 auto;padding:16px}
+.search{background:#fff;padding:16px;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.08);display:flex;gap:10px;flex-wrap:wrap}
+input,select,button{padding:12px;border-radius:10px;border:1px solid #ddd;font-size:15px}
+.search input{flex:2;min-width:180px}.search select{flex:1;min-width:140px}
+.btn{background:#0b4bd8;color:#fff;border:0;cursor:pointer;font-weight:bold}
+.btn-green{background:#16a34a}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:16px}
+.card{background:#fff;border-radius:14px;padding:0 0 16px;box-shadow:0 2px 10px rgba(0,0,0,.08);overflow:hidden}
+.card-inner{padding:0 16px}
+.card img{width:100%;height:180px;object-fit:cover;display:block}
+.card h3{margin:10px 0 6px}.badge{background:#e0ecff;color:#0b4bd8;padding:4px 10px;border-radius:20px;font-size:13px;font-weight:bold}
+.price{font-size:22px;font-weight:bold;margin:10px 0 4px}.muted{color:#666;font-size:14px}
+.admin{background:#fff;margin-top:22px;padding:18px;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.admin h2{margin-top:0}.admin form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.admin input,.admin select{width:100%}.full{grid-column:1/-1}
+@media(max-width:600px){.admin form{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><h1>🎓 The ShuleShift</h1><p>Find School Space In All 47 Counties - Live from Database</p></header>
+<div class="wrap">
+<div class="search">
+<input id="searchInput" placeholder="Search school name...">
+<select id="countyFilter"><option value="">All Counties</option></select>
+<button class="btn" onclick="loadSchools()">Search</button>
 </div>
-
-<!-- PAGE 2: FIND SCHOOLS -->
-<div id="schools" class="page">
-<div class="wrap"><h1>Find Schools With Spaces</h1><p style="margin:10px 0">Search in all 47 counties. FREE for parents.</p><div class="two"><img src="photo1.jpeg"><img src="photo2.jpeg"></div>
-<select><option>Select County - All 47 Counties</option><option>Mombasa</option><option>Kwale</option><option>Kilifi</option><option>Tana River</option><option>Lamu</option><option>Taita-Taveta</option><option>Garissa</option><option>Wajir</option><option>Mandera</option><option>Marsabit</option><option>Isiolo</option><option>Meru</option><option>Tharaka-Nithi</option><option>Embu</option><option>Kitui</option><option>Machakos</option><option>Makueni</option><option>Nyandarua</option><option>Nyeri</option><option>Kirinyaga</option><option>Murang'a</option><option>Kiambu</option><option>Turkana</option><option>West Pokot</option><option>Samburu</option><option>Trans Nzoia</option><option>Uasin Gishu</option><option>Elgeyo-Marakwet</option><option>Nandi</option><option>Baringo</option><option>Laikipia</option><option>Nakuru</option><option>Narok</option><option>Kajiado</option><option>Kericho</option><option>Bomet</option><option>Kakamega</option><option>Vihiga</option><option>Bungoma</option><option>Busia</option><option>Siaya</option><option>Kisumu</option><option>Homa Bay</option><option>Migori</option><option>Kisii</option><option>Nyamira</option><option>Nairobi</option></select>
-<select><option>All Classes</option><option>PP1 / PP2</option><option>Grade 1 - 6</option><option>Grade 7 - 9 (JSS)</option><option>Form 1 - 4</option></select>
-<div class="school"><div><h3>School in Ruiru, Kiambu</h3><p>Grade 1-6 • Spaces Available • Fees on WhatsApp</p></div><a class="btn" href="https://wa.me/254183179040" style="padding:10px 18px">WhatsApp →</a></div>
-<div class="school"><div><h3>School in Juja, Kiambu</h3><p>PP1 - Grade 6 • Spaces Available • Fees on WhatsApp</p></div><a class="btn" href="https://wa.me/254183179040" style="padding:10px 18px">WhatsApp →</a></div>
-<div class="school"><div><h3>School in Nakuru, Nakuru County</h3><p>Grade 7-9 • Spaces Available • Fees on WhatsApp</p></div><a class="btn" href="https://wa.me/254183179040" style="padding:10px 18px">WhatsApp →</a></div>
-<p style="text-align:center;margin-top:20px">Don't see your school? <a href="https://wa.me/254183179040">WhatsApp us on 0183 179 040</a></p></div>
+<p id="countText" class="muted">Loading schools...</p>
+<div id="schoolsGrid" class="grid"></div>
+<div class="admin">
+<h2>➕ Add a School (Admin)</h2>
+<p class="muted">Tip for Photo: type <b>photo1.jpeg</b> or <b>photo2.jpeg</b> to use your uploaded photos!</p>
+<form onsubmit="addSchool(event)">
+<input id="f_name" placeholder="School Name *" required>
+<select id="f_county" required><option value="">Select County *</option></select>
+<input id="f_location" placeholder="Location / Town">
+<input id="f_fees" type="number" placeholder="Fees per Term (KSh)">
+<input id="f_spaces" type="number" placeholder="Available Spaces">
+<input id="f_phone" placeholder="WhatsApp / Phone e.g. 0712345678">
+<input id="f_image" placeholder="Photo - type photo1.jpeg or photo2.jpeg">
+<button class="btn btn-green full" type="submit">Save School to Database</button>
+</form>
+<p id="msg"></p>
 </div>
-
-<!-- PAGE 3: FOR SCHOOLS -->
-<div id="for-schools" class="page">
-<div class="wrap" style="text-align:center"><h1>Schools: Fill Your Empty Spaces</h1><p style="margin:10px 0">We send you parents from all 47 counties who are already looking.</p><div class="two"><img src="photo1.jpeg"><img src="photo2.jpeg"></div>
-<div class="box"><h3>✅ Basic Listing - FREE</h3><p>Your school name, county, town, classes, fees. For all 47 counties.</p></div>
-<div class="box" style="border:2px solid #FFC107"><h3>⭐ Featured Listing - free/ term</h3><p>Appear at the TOP of your county. Get more WhatsApp leads.</p></div>
-<div class="box"><h3>🎯 Per Student free</h3><p>Pay only when a parent from ShuleShift joins your school.</p></div>
-<a class="btn" href="https://wa.me/254183179040?text=Hi,%20I%20want%20to%20list%20my%20school">List My School on WhatsApp →</a></div>
 </div>
-
-<!-- PAGE 4: ABOUT -->
-<div id="about" class="page">
-<div class="wrap"><h1>Why ShuleShift?</h1><div class="two"><img src="photo1.jpeg"><img src="photo2.jpeg"></div>
-<p>Parents in Ruiru, Juja, Thika and across Kenya were walking from school to school asking for spaces. We made it simple.</p><br>
-<p><b>Our Mission:</b> Make it easy for every parent in all 47 counties to find a school space, see fees, and talk to the school in minutes.</p><br>
-<p><b>For Parents:</b> Always FREE. All 47 counties.</p><p><b>For Schools:</b> Get serious parents, not random walk-ins.</p><br>
-<p>Based in Ruiru, Kiambu, Kenya. WhatsApp us: <b>0183 179 040</b></p></div>
-</div>
-
-<!-- PAGE 5: CONTACT -->
-<div id="contact" class="page">
-<div class="wrap"><h1 style="text-align:center">Contact Us</h1><p style="text-align:center;margin:10px 0">We reply fast on WhatsApp. Serving all 47 counties.</p><div class="two"><img src="photo1.jpeg"><img src="photo2.jpeg"></div>
-<div class="flex">
-<div class="left"><h2>Talk to Us</h2><br><p><b>WhatsApp:</b><br><a href="https://wa.me/254183179040">+254 183 179 040</a></p><br><p><b>Email:</b><br>hello@shuleshift.co.ke</p><br><p><b>Location:</b><br>Ruiru, Kiambu, Kenya</p><br><p><b>Coverage:</b><br>All 47 Counties in Kenya</p></div>
-<div class="right"><h2>Send us a message</h2><input placeholder="Your Name"><input placeholder="Your Phone / WhatsApp">
-<select><option>Select Your County</option><option>Mombasa</option><option>Kwale</option><option>Kilifi</option><option>Tana River</option><option>Lamu</option><option>Taita-Taveta</option><option>Garissa</option><option>Wajir</option><option>Mandera</option><option>Marsabit</option><option>Isiolo</option><option>Meru</option><option>Tharaka-Nithi</option><option>Embu</option><option>Kitui</option><option>Machakos</option><option>Makueni</option><option>Nyandarua</option><option>Nyeri</option><option>Kirinyaga</option><option>Murang'a</option><option>Kiambu</option><option>Turkana</option><option>West Pokot</option><option>Samburu</option><option>Trans Nzoia</option><option>Uasin Gishu</option><option>Elgeyo-Marakwet</option><option>Nandi</option><option>Baringo</option><option>Laikipia</option><option>Nakuru</option><option>Narok</option><option>Kajiado</option><option>Kericho</option><option>Bomet</option><option>Kakamega</option><option>Vihiga</option><option>Bungoma</option><option>Busia</option><option>Siaya</option><option>Kisumu</option><option>Homa Bay</option><option>Migori</option><option>Kisii</option><option>Nyamira</option><option>Nairobi</option></select>
-<textarea rows="4" placeholder="Your Message - e.g. I need Grade 4 in Kiambu"></textarea><button class="btn" style="background:#0a0a5c;color:white;width:100%" onclick="window.location.href='https://wa.me/254183179040'">Send Message</button></div>
-</div></div>
-</div>
-
-<section class="contact-bar"><h2 style="color:#0a0a5c">Need a school space? Talk to us now</h2><p style="margin:12px 0;color:#0a0a5c">We reply fast on WhatsApp. FREE for parents.</p>
-<a href="https://wa.me/254183179040?text=Hi%20ShuleShift,%20I%20need%20a%20school%20space" style="background:#0a0a5c;color:white;padding:14px 28px;border-radius:30px;text-decoration:none;font-weight:900;display:inline-block">💬 WhatsApp: 0183 179 040</a>
-<a href="mailto:hello@shuleshift.co.ke" style="background:white;color:#0a0a5c;padding:14px 28px;border-radius:30px;text-decoration:none;font-weight:900;display:inline-block;margin-left:10px">✉️ hello@shuleshift.co.ke</a>
-<p style="margin-top:12px;color:#0a0a5c">📍 Ruiru, Kiambu, Kenya • Serving All 47 Counties</p></section>
-
-<footer>The ShuleShift • Ruiru, Kiambu, Kenya<br>WhatsApp: <a href="https://wa.me/254183179040">0183 179 040</a> • Email: hello@shuleshift.co.ke<br>Serving All 47 Counties in Kenya</footer>
-<a class="wa" href="https://wa.me/254183179040?text=Hi%20ShuleShift,%20I%20need%20a%20school%20space">💬 WhatsApp</a>
-
 <script>
-function show(id,el){
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-document.getElementById(id).classList.add('active');
-document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
-if(el) el.classList.add('active');
-window.scrollTo(0,0);
+const SUPABASE_URL = "https://ynanzojdqrgwgknpsteh.supabase.co";
+const SUPABASE_KEY = "sb_publishable_StA4FWEbj7rY_LqW8PQDQg_ufc5o0ej";
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const counties = ["Baringo","Bomet","Bungoma","Busia","Elgeyo-Marakwet","Embu","Garissa","Homa Bay","Isiolo","Kajiado","Kakamega","Kericho","Kiambu","Kilifi","Kirinyaga","Kisii","Kisumu","Kitui","Kwale","Laikipia","Lamu","Machakos","Makueni","Mandera","Marsabit","Meru","Migori","Mombasa","Murang'a","Nairobi","Nakuru","Nandi","Narok","Nyamira","Nyandarua","Nyeri","Samburu","Siaya","Taita-Taveta","Tana River","Tharaka-Nithi","Trans Nzoia","Turkana","Uasin Gishu","Vihiga","Wajir","West Pokot"];
+const cf = document.getElementById('countyFilter');
+const fc = document.getElementById('f_county');
+counties.forEach(c=>{ cf.innerHTML += `<option>${c}</option>`; fc.innerHTML += `<option>${c}</option>`; });
+async function loadSchools(){
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const county = document.getElementById('countyFilter').value;
+  let query = supabaseClient.from('schools').select('*').order('created_at',{ascending:false});
+  if(county) query = query.eq('county', county);
+  const {data, error} = await query;
+  if(error){ document.getElementById('countText').innerText = 'Error: ' + error.message; return; }
+  let filtered = data.filter(s => !q || s.name.toLowerCase().includes(q));
+  document.getElementById('countText').innerText = filtered.length + ' school(s) found - Live from Supabase';
+  document.getElementById('schoolsGrid').innerHTML = filtered.length ? filtered.map(s=>`
+    <div class="card">
+      <img src="${s.image_url || 'photo1.jpeg'}" onerror="this.src='photo1.jpeg'">
+      <div class="card-inner">
+      <span class="badge">${s.county}</span>
+      <h3 style="margin-top:10px">${s.name}</h3>
+      <div class="muted">📍 ${s.location || 'Kenya'} • 🪑 ${s.spaces || 0} spaces left</div>
+      <div class="price">KSh ${(s.fees||0).toLocaleString()} <span style="font-size:13px;font-weight:normal">/ term</span></div>
+      <a href="https://wa.me/254${(s.phone||'').replace(/^0/,'').replace(/\D/g,'')}" target="_blank"><button class="btn btn-green" style="width:100%">Chat on WhatsApp</button></a>
+      <button onclick="deleteSchool(${s.id})" style="width:100%;margin-top:8px;background:#fee;border:0;color:#c00;padding:9px;border-radius:10px;cursor:pointer">Delete</button>
+      </div>
+    </div>`).join('') : '<p>No schools yet. Add one below!</p>';
 }
+async function addSchool(e){
+  e.preventDefault();
+  const payload = { name: document.getElementById('f_name').value, county: document.getElementById('f_county').value, location: document.getElementById('f_location').value, fees: parseInt(document.getElementById('f_fees').value||0), spaces: parseInt(document.getElementById('f_spaces').value||0), phone: document.getElementById('f_phone').value, image_url: document.getElementById('f_image').value || 'photo1.jpeg' };
+  const {error} = await supabaseClient.from('schools').insert([payload]);
+  if(error) document.getElementById('msg').innerText = 'Error: ' + error.message;
+  else { document.getElementById('msg').innerText = '✅ Saved! School is now live with photo!'; e.target.reset(); loadSchools(); }
+}
+async function deleteSchool(id){
+  if(!confirm('Delete this school?')) return;
+  await supabaseClient.from('schools').delete().eq('id', id);
+  loadSchools();
+}
+loadSchools();
 </script>
-</body></html>
+</body>
+</html>
