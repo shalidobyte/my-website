@@ -3,111 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The ShuleShift - Find School Space In All 47 Counties</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>ShuleShift - Find School Space In All 47 Counties</title>
 <style>
-*{box-sizing:border-box}
-body{font-family:'Inter',system-ui,-apple-system,sans-serif;margin:0;background:#F8FAFC;color:#0F172A;padding-bottom:90px}
-.topbar{background:#0F2A5C;color:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto}
-.logo{font-weight:800;font-size:22px;letter-spacing:-.5px}
-.logo span{color:#FBBF24}
-.topbar a{color:#fff;text-decoration:none;font-size:13px;font-weight:600;background:rgba(255,255,255,.15);padding:8px 14px;border-radius:999px}
-.hero{background:linear-gradient(135deg,#0F2A5C 0%,#1D4ED8 100%);color:#fff;padding:42px 20px 52px;text-align:center}
-.hero h1{font-size:34px;line-height:1.1;margin:0 auto;max-width:650px;letter-spacing:-1px}
-.hero h1 em{color:#FBBF24;font-style:normal}
-.hero p{opacity:.85;max-width:550px;margin:14px auto 0;font-size:16px;line-height:1.5}
-.search{max-width:700px;margin:-22px auto 0;background:#fff;padding:8px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.15);display:flex;gap:6px;position:relative;z-index:2}
-.search input{flex:1;border:0;outline:none;padding:14px 18px;font-size:15px;border-radius:999px}
-.search button{background:#0F2A5C;color:#fff;border:0;padding:13px 22px;border-radius:999px;font-weight:700;cursor:pointer}
-.stats{max-width:900px;margin:28px auto 0;display:flex;justify-content:center;gap:32px;text-align:center;padding:0 20px}
-.stats b{display:block;font-size:24px}
-.stats span{font-size:12px;color:#64748B;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
-.section{max-width:1000px;margin:34px auto 0;padding:0 20px}
-.section h2{font-size:22px;margin:0}
-.section p{color:#64748B;margin:6px 0 18px;font-size:14px}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:27px}}
-.card{background:#fff;border:1px solid #E2E8F0;border-radius:18px;padding:20px;text-align:left;transition:.2s}
-.card:hover{transform:translateY(-3px);box-shadow:0 12px 25px rgba(0,0,0,.08)}
-.card .emoji{font-size:28px;background:#EFF6FF;width:48px;height:48px;display:flex;align-items:center;justify-content:center;border-radius:12px}
-.card h3{margin:12px 0 4px;font-size:17px}
-.card p{margin:0;color:#64748B;font-size:13px}
-.card .link{margin-top:14px;display:flex;justify-content:space-between;align-items:center}
-.card a{color:#1D4ED8;font-weight:700;text-decoration:none;font-size:14px}
-.badge{background:#FEF3C7;color:#92400E;font-size:11px;font-weight:700;padding:4px 8px;border-radius:999px}
-.how{background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:26px}
-@media(max-width:700px){.how{grid-template-columns:1fr}}
-.how b{font-size:15px}.how p{font-size:13px;line-height:1.5}
-.step{width:32px;height:32px;background:#0F2A5C;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:10px}
-footer{text-align:center;color:#94A3B8;font-size:12px;padding:30px 20px}
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #E2E8F0;display:flex;justify-content:space-around;padding:10px 0 14px;z-index:999;box-shadow:0 -5px 20px rgba(0,0,0,.05)}
-.bottom-nav a{text-decoration:none;color:#64748B;font-size:11px;font-weight:600;text-align:center;display:flex;flex-direction:column;gap:3px}
-.bottom-nav a.active{color:#0F2A5C}
-.bottom-nav .icon{font-size:22px}
-.menu-popup{display:none;position:fixed;bottom:72px;left:12px;right:12px;background:#fff;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.2);padding:8px;z-index:1000}
-.menu-popup a{display:block;padding:15px 14px;border-bottom:1px solid #F1F5F9;text-decoration:none;color:#0F172A;font-weight:600}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
+body{background:#F8FAFC;color:#1E293B}
+.topbar{background:#0F2A5C;color:white;display:flex;justify-content:space-between;align-items:center;padding:14px 20px;max-width:1100px;margin:0 auto}
+.logo{font-size:22px;font-weight:900}
+.logo span{color:#F59E0B}
+.topbar a{color:white;font-weight:700;text-decoration:none;font-size:15px}
+.hero{background:#0F2A5C;color:white;text-align:center;padding:48px 18px 38px}
+.hero h1{font-size:42px;line-height:1.1}
+.hero h1 em{color:#F59E0B;font-style:normal}
+.hero p{font-size:18px;opacity:.95;max-width:650px;margin:14px auto 0;line-height:1.5}
+.hero-stats{display:flex;justify-content:center;gap:26px;margin-top:22px;font-weight:800;font-size:15px;flex-wrap:wrap}
+.container{max-width:1100px;margin:0 auto;padding:20px}
+.search-box{background:white;padding:18px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.08);margin-top:-10px}
+.search-box h3{margin-bottom:12px}
+.search-grid{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px}
+input,select{width:100%;padding:13px;border:1px solid #CBD5E1;border-radius:10px;font-size:15px}
+button{background:#F59E0B;color:#0F2A5C;border:none;padding:13px 22px;border-radius:10px;font-weight:900;cursor:pointer;font-size:15px}
+.section-title{font-size:24px;font-weight:900;margin:32px 0 14px}
+.county-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.county{background:white;padding:16px;border-radius:12px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.05);text-decoration:none;color:#1E293B;font-weight:700}
+.county small{display:block;color:#64748B;font-weight:400;margin-top:4px}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{background:white;border-radius:14px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.06)}
+.card-body{padding:16px}
+.card-body h3{font-size:18px;margin-bottom:6px}
+.badge{display:inline-block;background:#FEF3C7;color:#92400E;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:800;margin-bottom:8px}
+.pill{display:inline-block;background:#EFF6FF;padding:5px 10px;border-radius:20px;font-size:13px;margin:3px 3px 0 0}
+.wa{display:block;text-align:center;background:#25D366;color:white;padding:12px;border-radius:10px;text-decoration:none;font-weight:900;margin-top:12px}
+.footer{background:#0F2A5C;color:white;text-align:center;padding:24px;margin-top:40px;font-size:14px}
+@media(max-width:700px){.search-grid{grid-template-columns:1fr}.hero h1{font-size:32px}}
 </style>
 </head>
 <body>
 
 <div style="background:#0F2A5C">
-<div class="topbar"><div class="logo">The Shule<span>Shift</span></div><a href="principal.html">🏫 For Schools →</a></div>
+<div class="topbar"><div class="logo">🎓 Shule<span>Shift</span></div><a href="#counties">Find Schools →</a></div>
 </div>
 
 <div class="hero">
-<h1>Find School Space<br><em>In All 47 Counties.</em></h1>
-<p>Compare real vacancies, fees & classes. No more walking school-to-school. Find a space today.</p>
+<h1>Find School Space<br><em>In All 47 Counties</em></h1>
+<p>Compare real vacancies, fees & classes. Contact the school directly on WhatsApp — no middleman.</p>
+<div class="hero-stats"><span>47 Counties</span><span>•</span><span>380+ Schools</span><span>•</span><span>12,400+ Spaces Found</span></div>
 </div>
 
-<div style="padding:0 16px">
-<form class="search" action="counties.html"><input placeholder="🔍 Search school name, e.g. Alliance..."><button>Search</button></form>
-</div>
-
-<div class="stats">
-<div><b>47</b><span>Counties</span></div>
-<div><b>380+</b><span>Schools</span></div>
-<div><b>12,400+</b><span>Spaces Found</span></div>
-</div>
-
-<div class="section">
-<h2>Popular Counties</h2>
-<p>Most parents are searching here right now</p>
-<div class="grid">
-<div class="card"><div class="emoji">🏙️</div><h3>Nairobi</h3><p>120 Schools • 2,400 spaces</p><div class="link"><a href="counties.html?county=Nairobi">View Spaces →</a><span class="badge">HOT</span></div></div>
-<div class="card"><div class="emoji">🌿</div><h3>Kiambu</h3><p>98 Schools • 1,850 spaces</p><div class="link"><a href="counties.html?county=Kiambu">View Spaces →</a></div></div>
-<div class="card"><div class="emoji">🌊</div><h3>Mombasa</h3><p>85 Schools • 1,200 spaces</p><div class="link"><a href="counties.html?county=Mombasa">View Spaces →</a></div></div>
-<div class="card"><div class="emoji">☀️</div><h3>Kisumu</h3><p>76 Schools • 980 spaces</p><div class="link"><a href="counties.html?county=Kisumu">View Spaces →</a></div></div>
-<div class="card"><div class="emoji">⛰️</div><h3>Nakuru</h3><p>72 Schools • 890 spaces</p><div class="link"><a href="counties.html?county=Nakuru">View Spaces →</a></div></div>
-<div class="card"><div class="emoji">🌄</div><h3>Uasin Gishu</h3><p>64 Schools • 760 spaces</p><div class="link"><a href="counties.html?county=Uasin Gishu">View Spaces →</a></div></div>
-<div class="card"><div class="emoji">🏞️</div><h3>Kakamega</h3><p>58 Schools • 640 spaces</p><div class="link"><a href="counties.html?county=Kakamega">View Spaces →</a></div></div>
-<div class="card"><div class="emoji">✨</div><h3>All 47 Counties</h3><p>See every county</p><div class="link"><a href="counties.html">View All →</a></div></div>
-</div>
-
-<div class="how">
-<div><div class="step">1</div><b>Search by County</b><p>Choose your county and class - PP1 to Form 4.</p></div>
-<div><div class="step">2</div><b>Compare Fees & Spaces</b><p>See real vacancies and fees posted by principals.</p></div>
-<div><div class="step">3</div><b>Contact School Directly</b><p>Call or WhatsApp the school and secure the space.</p></div>
+<div class="container">
+<div class="search-box">
+<h3>🔍 Search For A Space</h3>
+<div class="search-grid">
+<select id="countySelect"><option value="">All Counties</option><option>Nairobi</option><option>Mombasa</option><option>Kisumu</option><option>Nakuru</option><option>Kiambu</option><option>Machakos</option><option>Kajiado</option><option>Uasin Gishu</option><option>Kakamega</option><option>Kilifi</option><option>Nyeri</option><option>Meru</option></select>
+<select id="classSelect"><option value="">All Classes</option><option>PP1</option><option>PP2</option><option>Grade 1</option><option>Grade 2</option><option>Grade 3</option><option>Grade 4</option><option>Grade 5</option><option>Grade 6</option><option>Grade 7</option><option>Grade 8</option><option>Grade 9</option><option>Form 1</option><option>Form 2</option><option>Form 3</option><option>Form 4</option></select>
+<input type="text" id="searchInput" placeholder="Search school name...">
+<button onclick="filterSchools()">Search</button>
 </div>
 </div>
 
-<footer>© 2026 The ShuleShift • Made in Kenya 🇰🇪<br>Helping every child find a classroom.</footer>
+<h2 class="section-title" id="counties">Browse By County</h2>
+<div class="county-grid" id="countyGrid"></div>
 
-<div class="menu-popup" id="menuPopup">
-<a href="index.html">🏠 Home</a>
-<a href="counties.html">📍 Browse by County</a>
-<a href="principal.html">👨🏾‍🏫 Principal Login</a>
-<a href="contact.html">📞 Contact Us</a>
+<h2 class="section-title">Featured Schools With Vacancies</h2>
+<div class="card-grid" id="schoolGrid"></div>
 </div>
 
-<div class="bottom-nav">
-<a href="index.html" class="active"><span class="icon">🏠</span>Home</a>
-<a href="counties.html"><span class="icon">🔍</span>Search</a>
-<a href="principal.html"><span class="icon">🏫</span>School</a>
-<a href="#" onclick="toggleMenu(event)"><span class="icon">☰</span>Menu</a>
-</div>
+<div class="footer">© 2026 ShuleShift • Find School Space In Kenya • Made for Parents</div>
 
 <script>
-function toggleMenu(e){e.preventDefault();const m=document.getElementById('menuPopup');m.style.display=m.style.display==='block'?'none':'block';}
+const counties = [
+{name:"Nairobi",spaces:"124"},{name:"Mombasa",spaces:"86"},{name:"Kisumu",spaces:"64"},{name:"Nakuru",spaces:"58"},{name:"Kiambu",spaces:"72"},{name:"Machakos",spaces:"41"},{name:"Kajiado",spaces:"39"},{name:"Uasin Gishu",spaces:"45"},{name:"Kakamega",spaces:"33"},{name:"Kilifi",spaces:"28"},{name:"Nyeri",spaces:"31"},{name:"Meru",spaces:"27"}
+];
+const schools = [
+{name:"Rusinga International School",county:"Nairobi",classes:"PP1 - Grade 9",fee:"KSh 45,000 / term",spaces:"12 spaces left"},
+{name:"Braeburn Garden Estate",county:"Nairobi",classes:"PP1 - Form 4",fee:"KSh 85,000 / term",spaces:"8 spaces left"},
+{name:"Aga Khan Academy Mombasa",county:"Mombasa",classes:"Grade 1 - Form 4",fee:"KSh 65,000 / term",spaces:"15 spaces left"},
+{name:"Kisumu Senior Academy",county:"Kisumu",classes:"PP2 - Grade 9",fee:"KSh 28,000 / term",spaces:"20 spaces left"},
+{name:"Nakuru Elite School",county:"Nakuru",classes:"PP1 - Grade 8",fee:"KSh 22,000 / term",spaces:"10 spaces left"},
+{name:"Nova Pioneer Tatu City",county:"Kiambu",classes:"Grade 1 - Form 4",fee:"KSh 58,000 / term",spaces:"6 spaces left"}
+];
+function renderCounties(){
+document.getElementById('countyGrid').innerHTML = counties.map(c=>`<a class="county" href="#" onclick="setCounty('${c.name}');return false;">${c.name}<small>${c.spaces} spaces</small></a>`).join('');
+}
+function renderSchools(list){
+document.getElementById('schoolGrid').innerHTML = list.map(s=>`<div class="card"><div class="card-body"><span class="badge">✅ ${s.spaces}</span><h3>${s.name}</h3><p style="color:#64748B">📍 ${s.county} • ${s.classes}</p><p style="font-weight:900;margin-top:8px">${s.fee}</p><span class="pill">Vacancy Available</span><span class="pill">Verified</span><a class="wa" href="https://wa.me/254700000000?text=Hi, I want space at ${encodeURIComponent(s.name)}">Chat on WhatsApp</a></div></div>`).join('');
+}
+function setCounty(name){document.getElementById('countySelect').value=name;filterSchools();}
+function filterSchools(){
+const c=document.getElementById('countySelect').value.toLowerCase();
+const q=document.getElementById('searchInput').value.toLowerCase();
+const filtered=schools.filter(s=>(!c||s.county.toLowerCase()===c)&&(!q||s.name.toLowerCase().includes(q)));
+renderSchools(filtered);
+document.getElementById('schoolGrid').scrollIntoView({behavior:'smooth'});
+}
+renderCounties();
+renderSchools(schools);
 </script>
 </body>
 </html>
