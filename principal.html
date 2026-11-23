@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Principal Login - ShuleShift</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, Arial, sans-serif; background: #f2f2f2; padding: 16px; }
+.top { text-align: center; margin: 10px 0 20px; }
+.top h1 { font-size: 28px; color: #111; }
+.top h1 span { color: #1a73e8; }
+.top p { color: #666; font-size: 14px; margin-top: 4px; }
+.card { background: #fff; padding: 24px 20px; border-radius: 16px; max-width: 420px; margin: 0 auto; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+.card h2 { font-size: 20px; margin-bottom: 4px; }
+.card .sub { color: #666; font-size: 14px; margin-bottom: 18px; }
+label { font-weight: 600; font-size: 14px; display: block; margin-top: 12px; }
+input { width: 100%; padding: 13px 12px; margin-top: 6px; border: 1px solid #ddd; border-radius: 10px; font-size: 15px; background: #fafafa; }
+input:focus { outline: none; border-color: #1a73e8; background: #fff; }
+button { width: 100%; background: #1a73e8; color: #fff; padding: 15px; border: none; border-radius: 10px; font-size: 16px; font-weight: 700; margin-top: 20px; cursor: pointer; }
+button:disabled { opacity: 0.6; }
+#msg { text-align: center; margin-top: 16px; font-size: 15px; line-height: 1.5; }
+#msg a { color: #1a73e8; font-weight: 700; }
+.back { display: block; text-align: center; margin-top: 16px; color: #666; font-size: 14px; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <h1>Shule<span>Shift</span></h1>
+  <p>Find a school. Shift your future.</p>
+</div>
+
+<div class="card">
+  <h2>👨🏾‍🏫 Principal Login / Register</h2>
+  <p class="sub">Register once, then add your school.</p>
+
+  <form onsubmit="loginPrincipal(event)">
+    <label>Full Name</label>
+    <input id="pName" required placeholder="e.g. Mr. Kamau">
+
+    <label>School Name</label>
+    <input id="pSchool" required placeholder="e.g. Nakuru Hope Academy">
+
+    <label>County</label>
+    <input id="pCounty" required placeholder="e.g. Nakuru">
+
+    <label>WhatsApp Number</label>
+    <input id="pPhone" required type="tel" placeholder="e.g. 0727 123 456">
+
+    <button id="btn" type="submit">REGISTER / LOGIN</button>
+  </form>
+
+  <p id="msg"></p>
+</div>
+
+<a class="back" href="index.html">← Back to Home</a>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  // === BADILISHA HAPA NA ZAKO ===
+  const SUPABASE_URL = "YOUR_SUPABASE_URL";
+  const SUPABASE_KEY = "YOUR_ANON_KEY";
+  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  async function loginPrincipal(e){
+    e.preventDefault();
+    const btn = document.getElementById('btn');
+    const msg = document.getElementById('msg');
+    btn.disabled = true;
+    btn.textContent = "Please wait...";
+
+    const full_name = document.getElementById('pName').value.trim();
+    const school_name = document.getElementById('pSchool').value.trim();
+    const county = document.getElementById('pCounty').value.trim();
+    const phone = document.getElementById('pPhone').value.trim();
+
+    // 1. Check kama principal amesha-exist
+    let { data } = await supabaseClient.from('principals').select('*').eq('phone', phone).single();
+
+    if(data){
+      localStorage.setItem('principal_id', data.id);
+      localStorage.setItem('principal_name', data.full_name);
+      localStorage.setItem('principal_school', data.school_name);
+      msg.innerHTML = "✅ Karibu tena " + data.full_name + "!<br><a href='add-school.html'>Click here to Add School Spaces →</a>";
+    } else {
+      // 2. Mgeni - Register
+      let { data: newP, error } = await supabaseClient.from('principals').insert([{
+        full_name: full_name,
+        school_name: school_name,
+        county: county,
+        phone: phone
+      }]).select().single();
+
+      if(error){
+        msg.innerHTML = "❌ Error: " + error.message;
+        btn.disabled = false;
+        btn.textContent = "REGISTER / LOGIN";
+      } else {
+        localStorage.setItem('principal_id', newP.id);
+        localStorage.setItem('principal_name', newP.full_name);
+        localStorage.setItem('principal_school', newP.school_name);
+        msg.innerHTML = "✅ Registered! Karibu " + newP.full_name + "<br><a href='add-school.html'>Click here to Add School Spaces →</a>";
+      }
+    }
+    btn.disabled = false;
+    btn.textContent = "REGISTER / LOGIN";
+  }
+</script>
+</body>
+</html>
