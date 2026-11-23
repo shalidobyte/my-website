@@ -26,13 +26,9 @@ button{background:#F59E0B;color:#0F2A5C;border:none;padding:13px 22px;border-rad
 .county-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
 .county{background:white;padding:16px;border-radius:12px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.05);text-decoration:none;color:#1E293B;font-weight:700}
 .county small{display:block;color:#64748B;font-weight:400;margin-top:4px}
-.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-.card{background:white;border-radius:14px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.06)}
-.card-body{padding:16px}
-.card-body h3{font-size:18px;margin-bottom:6px}
-.badge{display:inline-block;background:#FEF3C7;color:#92400E;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:800;margin-bottom:8px}
-.pill{display:inline-block;background:#EFF6FF;padding:5px 10px;border-radius:20px;font-size:13px;margin:3px 3px 0 0}
-.wa{display:block;text-align:center;background:#25D366;color:white;padding:12px;border-radius:10px;text-decoration:none;font-weight:900;margin-top:12px}
+.card{background:white;border-radius:14px;padding:22px;box-shadow:0 4px 14px rgba(0,0,0,.06);text-align:center}
+.wa{display:inline-block;background:#25D366;color:white;padding:14px 22px;border-radius:10px;text-decoration:none;font-weight:900;margin-top:14px}
+.wa2{display:inline-block;background:#0F2A5C;color:white;padding:14px 22px;border-radius:10px;text-decoration:none;font-weight:900;margin-top:14px}
 .footer{background:#0F2A5C;color:white;text-align:center;padding:24px;margin-top:40px;font-size:14px}
 @media(max-width:700px){.search-grid{grid-template-columns:1fr}.hero h1{font-size:32px}}
 </style>
@@ -45,58 +41,50 @@ button{background:#F59E0B;color:#0F2A5C;border:none;padding:13px 22px;border-rad
 
 <div class="hero">
 <h1>Find School Space<br><em>In All 47 Counties</em></h1>
-<p>Compare real vacancies, fees & classes. Contact the school directly on WhatsApp — no middleman.</p>
-<div class="hero-stats"><span>47 Counties</span><span>•</span><span>380+ Schools</span><span>•</span><span>12,400+ Spaces Found</span></div>
+<p>We are launching soon. Join the waitlist and be the first to see real vacancies, fees & classes in your county.</p>
+<div class="hero-stats"><span>47 Counties</span><span>•</span><span>Launching Soon</span><span>•</span><span>100% Free For Parents</span></div>
 </div>
 
 <div class="container">
 <div class="search-box">
-<h3>🔍 Search For A Space</h3>
+<h3>🔍 Find A Space In Your County</h3>
 <div class="search-grid">
-<select id="countySelect"><option value="">All Counties</option><option>Nairobi</option><option>Mombasa</option><option>Kisumu</option><option>Nakuru</option><option>Kiambu</option><option>Machakos</option><option>Kajiado</option><option>Uasin Gishu</option><option>Kakamega</option><option>Kilifi</option><option>Nyeri</option><option>Meru</option></select>
-<select id="classSelect"><option value="">All Classes</option><option>PP1</option><option>PP2</option><option>Grade 1</option><option>Grade 2</option><option>Grade 3</option><option>Grade 4</option><option>Grade 5</option><option>Grade 6</option><option>Grade 7</option><option>Grade 8</option><option>Grade 9</option><option>Form 1</option><option>Form 2</option><option>Form 3</option><option>Form 4</option></select>
-<input type="text" id="searchInput" placeholder="Search school name...">
-<button onclick="filterSchools()">Search</button>
+<select id="countySelect"><option value="">Select Your County</option><option>Nairobi</option><option>Mombasa</option><option>Kisumu</option><option>Nakuru</option><option>Kiambu</option><option>Machakos</option><option>Kajiado</option><option>Uasin Gishu</option><option>Kakamega</option><option>Kilifi</option><option>Nyeri</option><option>Meru</option><option>Embu</option><option>Kirinyaga</option><option>Muranga</option><option>Nyandarua</option><option>Laikipia</option><option>Baringo</option><option>Bomet</option><option>Bungoma</option><option>Busia</option><option>Elgeyo Marakwet</option><option>Garissa</option><option>Homa Bay</option><option>Isiolo</option><option>Kericho</option><option>Kisii</option><option>Kitui</option><option>Kwale</option><option>Lamu</option><option>Makueni</option><option>Mandera</option><option>Marsabit</option><option>Migori</option><option>Nandi</option><option>Narok</option><option>Nyamira</option><option>Samburu</option><option>Siaya</option><option>Taita Taveta</option><option>Tana River</option><option>Tharaka Nithi</option><option>Trans Nzoia</option><option>Turkana</option><option>Vihiga</option><option>Wajir</option><option>West Pokot</option></select>
+<select><option>All Classes</option><option>PP1</option><option>PP2</option><option>Grade 1</option><option>Grade 2</option><option>Grade 3</option><option>Grade 4</option><option>Grade 5</option><option>Grade 6</option><option>Grade 7</option><option>Grade 8</option><option>Grade 9</option><option>Form 1</option><option>Form 2</option><option>Form 3</option><option>Form 4</option></select>
+<input type="text" placeholder="Your WhatsApp number...">
+<button onclick="joinWaitlist()">Join Waitlist</button>
 </div>
+<p id="waitMsg" style="margin-top:10px;font-weight:700;color:#0F2A5C"></p>
 </div>
 
 <h2 class="section-title" id="counties">Browse By County</h2>
 <div class="county-grid" id="countyGrid"></div>
 
-<h2 class="section-title">Featured Schools With Vacancies</h2>
-<div class="card-grid" id="schoolGrid"></div>
+<h2 class="section-title">Schools With Vacancies</h2>
+<div class="card">
+<h3>🚀 We Are Onboarding Schools Now</h3>
+<p style="color:#64748B;margin-top:8px;line-height:1.5">No schools listed yet in this county. We are verifying real vacancies directly with schools so parents don't get fake info.<br>Check back soon — or join the waitlist above.</p>
+<a class="wa2" href="https://wa.me/254700000000?text=Hi ShuleShift, notify me when schools open in my county">Notify Me On WhatsApp</a>
+</div>
+
+<h2 class="section-title">Are You A School?</h2>
+<div class="card" style="background:#FFF7ED;border:2px dashed #F59E0B">
+<h3>🏫 List Your Vacancies FREE — Be First In Your County</h3>
+<p style="color:#64748B;margin-top:8px;line-height:1.5">Have empty seats in PP1, Grade 1, Form 1 or any class? Parents are searching right now.<br>List in 2 minutes. No payment. No middleman.</p>
+<a class="wa" href="https://wa.me/254700000000?text=Hi ShuleShift, I am a school and I want to list my vacancies for FREE">List My School FREE On WhatsApp →</a>
+<p style="font-size:13px;color:#64748B;margin-top:10px">Replace 254700000000 with your real WhatsApp number in the code later.</p>
+</div>
 </div>
 
 <div class="footer">© 2026 ShuleShift • Find School Space In Kenya • Made for Parents</div>
 
 <script>
-const counties = [
-{name:"Nairobi",spaces:"124"},{name:"Mombasa",spaces:"86"},{name:"Kisumu",spaces:"64"},{name:"Nakuru",spaces:"58"},{name:"Kiambu",spaces:"72"},{name:"Machakos",spaces:"41"},{name:"Kajiado",spaces:"39"},{name:"Uasin Gishu",spaces:"45"},{name:"Kakamega",spaces:"33"},{name:"Kilifi",spaces:"28"},{name:"Nyeri",spaces:"31"},{name:"Meru",spaces:"27"}
-];
-const schools = [
-{name:"Rusinga International School",county:"Nairobi",classes:"PP1 - Grade 9",fee:"KSh 45,000 / term",spaces:"12 spaces left"},
-{name:"Braeburn Garden Estate",county:"Nairobi",classes:"PP1 - Form 4",fee:"KSh 85,000 / term",spaces:"8 spaces left"},
-{name:"Aga Khan Academy Mombasa",county:"Mombasa",classes:"Grade 1 - Form 4",fee:"KSh 65,000 / term",spaces:"15 spaces left"},
-{name:"Kisumu Senior Academy",county:"Kisumu",classes:"PP2 - Grade 9",fee:"KSh 28,000 / term",spaces:"20 spaces left"},
-{name:"Nakuru Elite School",county:"Nakuru",classes:"PP1 - Grade 8",fee:"KSh 22,000 / term",spaces:"10 spaces left"},
-{name:"Nova Pioneer Tatu City",county:"Kiambu",classes:"Grade 1 - Form 4",fee:"KSh 58,000 / term",spaces:"6 spaces left"}
-];
-function renderCounties(){
-document.getElementById('countyGrid').innerHTML = counties.map(c=>`<a class="county" href="#" onclick="setCounty('${c.name}');return false;">${c.name}<small>${c.spaces} spaces</small></a>`).join('');
+const counties = ["Nairobi","Mombasa","Kisumu","Nakuru","Kiambu","Machakos","Kajiado","Uasin Gishu","Kakamega","Kilifi","Nyeri","Meru","Embu","Kirinyaga","Muranga","Nyandarua","Laikipia","Baringo","Bomet","Bungoma","Busia","Elgeyo Marakwet","Garissa","Homa Bay","Isiolo","Kericho","Kisii","Kitui","Kwale","Lamu","Makueni","Mandera","Marsabit","Migori","Nandi","Narok","Nyamira","Samburu","Siaya","Taita Taveta","Tana River","Tharaka Nithi","Trans Nzoia","Turkana","Vihiga","Wajir","West Pokot"];
+document.getElementById('countyGrid').innerHTML = counties.map(c=>`<a class="county" href="#" onclick="document.getElementById('countySelect').value='${c}';window.scrollTo({top:0,behavior:'smooth'});return false;">${c}<small>Coming Soon</small></a>`).join('');
+function joinWaitlist(){
+const c=document.getElementById('countySelect').value || 'your county';
+document.getElementById('waitMsg').innerText = '✅ Thanks! You are on the waitlist for ' + c + '. We will WhatsApp you when schools open there.';
 }
-function renderSchools(list){
-document.getElementById('schoolGrid').innerHTML = list.map(s=>`<div class="card"><div class="card-body"><span class="badge">✅ ${s.spaces}</span><h3>${s.name}</h3><p style="color:#64748B">📍 ${s.county} • ${s.classes}</p><p style="font-weight:900;margin-top:8px">${s.fee}</p><span class="pill">Vacancy Available</span><span class="pill">Verified</span><a class="wa" href="https://wa.me/254700000000?text=Hi, I want space at ${encodeURIComponent(s.name)}">Chat on WhatsApp</a></div></div>`).join('');
-}
-function setCounty(name){document.getElementById('countySelect').value=name;filterSchools();}
-function filterSchools(){
-const c=document.getElementById('countySelect').value.toLowerCase();
-const q=document.getElementById('searchInput').value.toLowerCase();
-const filtered=schools.filter(s=>(!c||s.county.toLowerCase()===c)&&(!q||s.name.toLowerCase().includes(q)));
-renderSchools(filtered);
-document.getElementById('schoolGrid').scrollIntoView({behavior:'smooth'});
-}
-renderCounties();
-renderSchools(schools);
 </script>
 </body>
 </html>
